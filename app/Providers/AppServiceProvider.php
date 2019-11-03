@@ -13,7 +13,13 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->app->singleton(NoteService::class, function ($app) {
+            return new NoteService();
+        });
+
+        $this->app->singleton(NoteCodeService::class, function ($app) {
+            return new NoteCodeService();
+        });
     }
 
     /**

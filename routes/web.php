@@ -14,3 +14,7 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/', 'NoteController@index');
+Route::post('/store', 'NoteController@store');
+Route::post('/view/{code}', 'NoteController@view');
