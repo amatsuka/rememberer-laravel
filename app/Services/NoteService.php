@@ -2,6 +2,7 @@
 namespace App\Services;
 
 use App\Models\Note;
+use Illuminate\Support\Facades\Config;
 
 class NoteService {
 
@@ -22,6 +23,9 @@ class NoteService {
             $note = $this->encryptNote($note, $attributes['password']);
         }
 
+        $note->code = $this->noteCodeService->generateCode();
+        $note->save();
+
         return $note;
     }
 
@@ -38,11 +42,18 @@ class NoteService {
     }
 
     private function encryptNote(Note $note, string $password) : Note {
+        $encrypter = new \Illuminate\Encryption\Encrypter($password, Config::get('app.cipher'));
+        $note->text = $encrypter->encrypt($note->text);
+        $note->password_hash = md5($password);
 
+        return $note;
     }
 
     private function decryptNote(Note $note, string $password) : Note
     {
+        $encrypter = new \Illuminate\Encryption\Encrypter($password, Config::get('app.cipher'));
+        $note->text = $encrypter->decrypt($note->text);
 
+        return $note;
     }
 }
