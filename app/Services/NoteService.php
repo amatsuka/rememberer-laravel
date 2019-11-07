@@ -2,7 +2,6 @@
 namespace App\Services;
 
 use App\Models\Note;
-use Illuminate\Support\Facades\Config;
 
 class NoteService {
 
@@ -31,18 +30,23 @@ class NoteService {
 
     public function findByCode(string $code) : ?Note
     {
-        return Note::whereCode($code)->wherePasswordHash(null);
+        return Note::whereCode($code)->wherePasswordHash(null)->first();
+    }
+
+    public function findByCodeIgnorePassword(string $code) : ?Note
+    {
+        return Note::whereCode($code)->first();
     }
 
     public function findByCodeAndPassword(string $code, string $password) : ?Note
     {
-        $note = Note::whereCode($code)->wherePasswordHash(md5(password));
-
+        $note = Note::whereCode($code)->wherePasswordHash(md5($password))->first();
         return $this->decryptNote($note, $password);
     }
 
     private function encryptNote(Note $note, string $password) : Note {
-        $encrypter = new \Illuminate\Encryption\Encrypter($password, Config::get('app.cipher'));
+        $encrypter = new \Illuminate\Encryption\Encrypter($password . \str_repeat("0", 16 - \strlen($password)));
+
         $note->text = $encrypter->encrypt($note->text);
         $note->password_hash = md5($password);
 
@@ -51,7 +55,8 @@ class NoteService {
 
     private function decryptNote(Note $note, string $password) : Note
     {
-        $encrypter = new \Illuminate\Encryption\Encrypter($password, Config::get('app.cipher'));
+        $password = $password . \str_repeat("0", 16 - \strlen($password));
+        $encrypter = new \Illuminate\Encryption\Encrypter($password);
         $note->text = $encrypter->decrypt($note->text);
 
         return $note;

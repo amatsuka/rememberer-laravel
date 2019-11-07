@@ -17,4 +17,5 @@ Route::get('/', function () {
 
 Route::get('/', 'NoteController@index')->name('index');
 Route::post('/store', 'NoteController@store')->name('note.store');
-Route::post('/view/{code}', 'NoteController@view')->name('note.view');
+Route::post('/view', 'NoteController@view')->name('note.view');
+Route::post('/view/{code}', 'NoteController@viewDirectly')->name('note.view-directly');

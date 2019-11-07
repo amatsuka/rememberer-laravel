@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Services\NoteService;
 use Illuminate\Support\Facades\Session;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class NoteController extends Controller
 {
@@ -26,15 +27,34 @@ class NoteController extends Controller
         return redirect(route('index'))->with(compact('note'));
      }
 
-    public function view(string $code, Request $request)
+    public function view(Request $request)
     {
-        if ($request->has('password')) {
-            $note = $this->noteService->findByCodeAndPassword($code, $request->get('password'));
-        } else {
-            $note = $this->noteService->findByCode($code);
+        if ($request->has('password') && $request->get('password') != null) {
+            $note = $this->noteService->findByCodeAndPassword($request->get('code'), $request->get('password'));
+        } elseif ($request->has('code')) {
+            $note = $this->noteService->findByCode($request->get('code'));
         }
 
-        return view('notes.show', compact('note'));
+        if ($note == null) {
+            throw new NotFoundHttpException();
+        }
+
+        return view('notes.view', compact('note'))->with('code', $request->get('code'));
+    }
+
+    public function viewDirectly(string $code)
+    {
+        $note = $this->noteService->findByCodeIgnorePassword($code);
+
+        if ($note == null) {
+            throw new NotFoundHttpException();
+        }
+
+        if ($note->password_hash == null) {
+            return view('notes.view', compact('note'));
+        } else {
+            return view('notes.view')->with('code', $code)->with('message', 'Необходимо ввести пароль');
+        }
     }
 
     public function index(Request $request)
