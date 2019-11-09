@@ -53,7 +53,7 @@ class NoteController extends Controller
         if ($note->password_hash == null) {
             return view('notes.view', compact('note'));
         } else {
-            return view('notes.view')->with('code', $code)->with('message', 'Необходимо ввести пароль');
+            return view('notes.view')->with('code', $code)->with('warning', 'Необходимо ввести пароль');
         }
     }
 

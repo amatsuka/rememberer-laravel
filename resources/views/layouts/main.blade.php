@@ -11,10 +11,33 @@
     @routes
 </head>
 <body>
-<div class="container">
-<div id="app">
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+    <div class="container">
+      <a class="navbar-brand" href="#">Start Bootstrap</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+    {!! Form::open(['route' => 'note.view', 'class' => 'form-inline my-2 my-md-0']) !!}
+        {!! Form::text('code', null, ['class' => 'form-control', 'placeholder' => 'Название']) !!}
+        {!! Form::text('password', null, ['class' => 'form-control',  'placeholder' => 'Пароль']) !!}
+        {!! Form::submit('Найти', ['class' => 'btn btn-primary']) !!}
+    {!! Form::close() !!}
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="#">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Content -->
+  <div class="container">
     @yield('content')
-</div>
+  </div>
 </div>
 <script type="text/javascript" src="{{ URL::asset('js/app.js') }}"></script>
 </body>
