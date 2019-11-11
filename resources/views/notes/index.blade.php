@@ -17,10 +17,10 @@
 </div>
 <div class="row">
     <div class="col">
+        <div id="editor-container"></div>
 {!! Form::open(['route' => 'note.store']) !!}
   <div class="form-group">
    {!! Form::label('text', 'Заметка') !!}
-        <div id="editor"></div>
        {!! Form::textarea('text', null, ['class' => 'form-control']) !!}
     <small id="textHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
   </div>

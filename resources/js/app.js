@@ -3,8 +3,16 @@ window.Popper = require('popper.js');
 window.$ = window.jQuery = require('jquery');
 require('bootstrap');
 
-let ace = require('ace-builds');
+import Quill from 'quill';
 
-let editor = ace.edit("editor");
-editor.setTheme("ace/theme/twilight");
-editor.session.setMode("ace/mode/javascript");
+var quill = new Quill('#editor-container', {
+    modules: {
+        toolbar: [
+            [{ header: [1, 2, false] }],
+            ['bold', 'italic', 'underline'],
+            ['code-block']
+        ]
+    },
+    placeholder: 'Compose an epic...',
+    theme: 'snow'  // or 'bubble'
+});

@@ -1,1 +1,8 @@
 @import "node_modules/bootstrap/scss/bootstrap";
+@import '~quill/dist/quill.core.css';
+@import '~quill/dist/quill.bubble.css';
+@import '~quill/dist/quill.snow.css';
+
+#editor-container {
+  height: 375px;
+}
