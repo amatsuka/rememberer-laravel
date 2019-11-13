@@ -2,6 +2,8 @@
 namespace App\Services;
 
 use App\Models\Note;
+use App\Exceptions\EmptyCodeException;
+use App\Exceptions\NoteNotStoredException;
 
 class NoteService {
 
@@ -22,7 +24,16 @@ class NoteService {
             $note = $this->encryptNote($note, $attributes['password']);
         }
 
-        $note->code = $this->noteCodeService->generateCode();
+        do {
+            try {
+            $code = $this->noteCodeService->generateCode();
+            } catch (EmptyCodeException $ex) {
+                throw new NoteNotStoredException($ex);
+            }
+        } while ($this->findByCodeIgnorePassword($code) != null);
+
+
+        $note->code = $code;
         $note->save();
 
         return $note;

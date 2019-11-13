@@ -1,24 +1,27 @@
 <?php
 namespace App\Services;
 
-use Faker\Factory;
-use Faker\Generator as Faker;
+use App\Models\Word;
+use Illuminate\Support\Facades\App;
+use App\Exceptions\EmptyCodeException;
 
 class NoteCodeService
 {
-    /**
-     * @var Faker
-     */
-    private $faker;
-
-    public function __construct()
+    public function generateCode($wordCount = 2) : string
     {
-        $this->faker = Factory::create('Ru_RU');
-    }
+        $locale = App::getLocale();
+        $words = [];
 
-    public function generateCode() : string
-    {
-       return $this->faker->words(2, true);
+        for ($i = 1; $i <= $wordCount; $i++) {
+            if ($word = Word::whereLocale($locale)->whereNumber($i)->inRandomOrder()->first())
+                $words[] = $word['text'];
+        }
+
+        if (count($words) != $wordCount) {
+            throw new EmptyCodeException();
+        }
+
+        return implode(' ', $words);
     }
 }
 
