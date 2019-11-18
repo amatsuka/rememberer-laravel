@@ -22,7 +22,7 @@
       <div class="collapse navbar-collapse" id="navbarResponsive">
     {!! Form::open(['route' => 'note.view', 'class' => 'form-inline my-2 my-md-0']) !!}
         {!! Form::text('code', null, ['class' => 'form-control', 'placeholder' => 'Название']) !!}
-        {!! Form::text('password', null, ['class' => 'form-control',  'placeholder' => 'Пароль']) !!}
+        {!! Form::password('password', null, ['class' => 'form-control',  'placeholder' => 'Пароль']) !!}
         {!! Form::submit('Найти', ['class' => 'btn btn-primary']) !!}
     {!! Form::close() !!}
         <ul class="navbar-nav ml-auto">

@@ -17,6 +17,9 @@ class NoteService {
         $this->noteCodeService = $noteCodeService;
     }
 
+    /**
+     * @return Note
+     */
     public function store(array $attributes) : Note {
         $note = new Note($attributes);
 

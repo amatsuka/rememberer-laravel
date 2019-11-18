@@ -1,18 +1,20 @@
 @extends('layouts.main')
 
 @section('content')
-@php
-    var_dump($note);
-@endphp
-
 <div class="row">
     <div class="col">
-        <div class="alert alert-warning" role="alert">
-            Content
-        </div>
-        <div class="alert alert-success" role="alert">
-            Content
-        </div>
+        @if ($message != null)
+            @if ($message['type'] == 'success')
+                <div class="alert alert-success" role="alert">
+                    {{ $message['text'] }}
+                </div>
+            @endif
+            @if ($message['type'] == 'error')
+                <div class="alert alert-error" role="alert">
+                    {{ $message['text'] }}
+                </div>
+            @endif
+        @endif
     </div>
 </div>
 <div class="row">

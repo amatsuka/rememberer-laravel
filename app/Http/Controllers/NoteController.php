@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Services\NoteService;
 use Illuminate\Support\Facades\Session;
+use App\Exceptions\NoteNotStoredException;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class NoteController extends Controller
@@ -22,9 +23,20 @@ class NoteController extends Controller
 
     public function store(Request $request)
     {
-        $note = $this->noteService->store($request->all());
+        try {
+            $note = $this->noteService->store($request->all());
+        } catch(NoteNotStoredException $ex) {
+            return view('/')->with('message', [
+                'type' => 'error',
+                'test' => $ex->getMessage()
+            ]);
+        }
 
-        return redirect(route('index'))->with(compact('note'));
+        return redirect(route('index'))
+        ->with('message', [
+            'type' => 'success',
+            'message' => "Заметка сохранена. Код для получения: {$note->code}. Ссылка: http://127.0.0.1:8000/view/{$note->code}"
+            ]);
      }
 
     public function view(Request $request)
@@ -36,10 +48,13 @@ class NoteController extends Controller
         }
 
         if ($note == null) {
-            throw new NotFoundHttpException();
+            return view('notes.view')->with('message', [
+                'type' => 'warning',
+                'message' => 'Запись не найдена. Введен неверный код либо запись защищена паролем'
+            ])->with('code', $request->get('code'));
         }
 
-        return view('notes.view', compact('note'))->with('code', $request->get('code'));
+        return view('notes.view', compact('note'));
     }
 
     public function viewDirectly(string $code)
@@ -53,12 +68,12 @@ class NoteController extends Controller
         if ($note->password_hash == null) {
             return view('notes.view', compact('note'));
         } else {
-            return view('notes.view')->with('code', $code)->with('warning', 'Необходимо ввести пароль');
+            return redirect('note.view')->with('code', $code);
         }
     }
 
     public function index(Request $request)
     {
-        return view('notes.index', ['note' => Session::get('note')]);
+        return view('notes.index', ['message' => Session::get('message')]);
     }
 }
