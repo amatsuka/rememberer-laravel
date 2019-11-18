@@ -20,9 +20,9 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
-    {!! Form::open(['route' => 'note.view', 'class' => 'form-inline my-2 my-md-0']) !!}
+    {!! Form::open(['route' => 'note.view.post', 'class' => 'form-inline my-2 my-md-0', 'method' => 'post']) !!}
         {!! Form::text('code', null, ['class' => 'form-control', 'placeholder' => 'Название']) !!}
-        {!! Form::password('password', null, ['class' => 'form-control',  'placeholder' => 'Пароль']) !!}
+        {!! Form::text('password', null, ['class' => 'form-control',  'placeholder' => 'Пароль']) !!}
         {!! Form::submit('Найти', ['class' => 'btn btn-primary']) !!}
     {!! Form::close() !!}
         <ul class="navbar-nav ml-auto">

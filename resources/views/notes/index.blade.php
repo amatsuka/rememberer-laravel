@@ -3,6 +3,7 @@
 @section('content')
 <div class="row">
     <div class="col">
+        @isset($message)
         @if ($message != null)
             @if ($message['type'] == 'success')
                 <div class="alert alert-success" role="alert">
@@ -15,12 +16,13 @@
                 </div>
             @endif
         @endif
+        @endisset
     </div>
 </div>
 <div class="row">
     <div class="col">
         <div id="editor-container"></div>
-{!! Form::open(['route' => 'note.store']) !!}
+{!! Form::open(['route' => 'note.store', 'method' => 'post']) !!}
   <div class="form-group">
    {!! Form::label('text', 'Заметка') !!}
        {!! Form::textarea('text', null, ['class' => 'form-control']) !!}
