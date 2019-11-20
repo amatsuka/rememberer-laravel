@@ -22,10 +22,9 @@
 <div class="row">
     <div class="col">
         <div id="editor-container"></div>
-{!! Form::open(['route' => 'note.store', 'method' => 'post']) !!}
+{!! Form::open(['route' => 'note.store', 'method' => 'post', 'id' => 'form']) !!}
   <div class="form-group">
-   {!! Form::label('text', 'Заметка') !!}
-       {!! Form::textarea('text', null, ['class' => 'form-control']) !!}
+       {!! Form::hidden('text', null, ['class' => 'form-control', 'id' => 'text']) !!}
     <small id="textHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
   </div>
   <div class="form-group">

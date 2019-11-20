@@ -24,18 +24,13 @@
         @endisset
     </div>
 </div>
-<div class="row">
+<div class="row mt-5">
     <div class="col">
-    {!! Form::open(['route' => 'note.view.post', 'class' => 'form-inline my-2 my-md-0', 'method' => 'post']) !!}
-        {!! Form::text('code', $code ?? null, ['class' => 'form-control', 'placeholder' => 'Название']) !!}
-        {!! Form::text('password', null, ['class' => 'form-control',  'placeholder' => 'Пароль']) !!}
-        {!! Form::submit('Найти', ['class' => 'btn btn-primary']) !!}
-    {!! Form::close() !!}
-    </div>
-</div>
-<div class="row">
-    <div class="col">
-    <div id="editor-container">@isset($note){{$note->text}}@endisset</div>
+        <div class="card">
+            <div class="card-body">
+                <div id="editor-container">@isset($note){{$note->text}}@endisset</div>
+            </div>
+        </div>
     </div>
 </div>
 @endsection

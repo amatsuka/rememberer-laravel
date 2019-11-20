@@ -8,7 +8,6 @@
     <title>Laravel</title>
     <link href="{{ URL::asset('css/app.css') }}" rel="stylesheet" type="text/css"/>
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:400,500,700,400italic|Material+Icons"/>
-    @routes
 </head>
 <body>
 
@@ -21,7 +20,7 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
     {!! Form::open(['route' => 'note.view.post', 'class' => 'form-inline my-2 my-md-0', 'method' => 'post']) !!}
-        {!! Form::text('code', null, ['class' => 'form-control', 'placeholder' => 'Название']) !!}
+        {!! Form::text('code', $code ?? null, ['class' => 'form-control', 'placeholder' => 'Название']) !!}
         {!! Form::text('password', null, ['class' => 'form-control',  'placeholder' => 'Пароль']) !!}
         {!! Form::submit('Найти', ['class' => 'btn btn-primary']) !!}
     {!! Form::close() !!}

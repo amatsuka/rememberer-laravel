@@ -5,14 +5,21 @@ require('bootstrap');
 
 import Quill from 'quill';
 
-var quill = new Quill('#editor-container', {
-    modules: {
-        toolbar: [
-            [{ header: [1, 2, false] }],
-            ['bold', 'italic', 'underline'],
-            ['code-block']
-        ]
-    },
-    placeholder: 'Compose an epic...',
-    theme: 'snow'  // or 'bubble'
+
+
+$(() => {
+    var quill = new Quill('#editor-container', {
+        modules: {
+            toolbar: [
+                ['code-block']
+            ]
+        },
+        placeholder: 'Compose an epic...',
+        theme: 'snow'  // or 'bubble'
+    });
+
+   $('#form').on('submit', () => {
+       $('#text').val(JSON.stringify(quill.getContents()));
+   });
+
 });
