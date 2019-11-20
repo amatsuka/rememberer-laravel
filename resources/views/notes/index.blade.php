@@ -19,22 +19,26 @@
         @endisset
     </div>
 </div>
-<div class="row">
+<div class="row mt-5">
     <div class="col">
-        <div id="editor-container"></div>
-{!! Form::open(['route' => 'note.store', 'method' => 'post', 'id' => 'form']) !!}
+        <div class="card">
+            <div class="card-body">
+                <div id="editor-container"></div>
+                {!! Form::open(['route' => 'note.store', 'method' => 'post', 'id' => 'form']) !!}
   <div class="form-group">
        {!! Form::hidden('text', null, ['class' => 'form-control', 'id' => 'text']) !!}
-    <small id="textHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+    <small id="textHelp" class="form-text text-muted">Сюда пости свой текст</small>
   </div>
   <div class="form-group">
    {!! Form::label('password', 'Пароль') !!}
     {!! Form::text('password', null, ['class' => 'form-control']) !!}
-    <small id="passwordHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+    <small id="passwordHelp" class="form-text text-muted">Этим паролем можно защифровать запись, но это не обязательно ;)</small>
   </div>
-{!! Form::submit('Сохранить', ['class' => 'btn btn-primary']) !!}
+{!! Form::submit('Запомнить', ['class' => 'btn btn-primary']) !!}
 
 {!! Form::close() !!}
+            </div>
+        </div>
     </div>
 </div>
 @endsection

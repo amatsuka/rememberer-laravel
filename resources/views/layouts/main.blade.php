@@ -14,19 +14,23 @@
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
     <div class="container">
-      <a class="navbar-brand" href="#">Start Bootstrap</a>
+      <a class="navbar-brand" href="#">Вспомнить легко ;)</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
-    {!! Form::open(['route' => 'note.view.post', 'class' => 'form-inline my-2 my-md-0', 'method' => 'post']) !!}
+    {!! Form::open(['route' => 'note.view.post', 'class' => 'form-inline', 'method' => 'post']) !!}
+    <div class="form-group">
         {!! Form::text('code', $code ?? null, ['class' => 'form-control', 'placeholder' => 'Название']) !!}
-        {!! Form::text('password', null, ['class' => 'form-control',  'placeholder' => 'Пароль']) !!}
-        {!! Form::submit('Найти', ['class' => 'btn btn-primary']) !!}
+    </div>
+        <div class="form-group mx-sm-3">
+            {!! Form::text('password', null, ['class' => 'form-control',  'placeholder' => 'Пароль']) !!}
+        </div>
+        {!! Form::submit('Вспомнить', ['class' => 'btn btn-primary']) !!}
     {!! Form::close() !!}
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <a class="nav-link" href="#">Contact</a>
+            <a class="nav-link" href="#">О проекте</a>
           </li>
         </ul>
       </div>
@@ -38,6 +42,14 @@
     @yield('content')
   </div>
 </div>
+<footer class="footer mt-auto py-3">
+  <div class="container">
+
+  </div>
+</footer>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/highlight.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/quill/1.3.7/quill.min.js"></script>
 <script type="text/javascript" src="{{ URL::asset('js/app.js') }}"></script>
+<script type="text/javascript" src="{{ URL::asset('js/quill.js') }}"></script>
 </body>
 </html>
