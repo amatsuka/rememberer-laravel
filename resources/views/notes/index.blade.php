@@ -17,6 +17,9 @@
             @endif
         @endif
         @endisset
+        <div class="alert alert-info" role="alert">
+            A simple info alert—check it out!
+        </div>
     </div>
 </div>
 <div class="row mt-5">
