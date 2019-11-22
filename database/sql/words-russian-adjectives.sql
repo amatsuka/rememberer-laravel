@@ -10,28 +10,28 @@
 
 
 --
--- База данных: `morphology`
+-- База данных: morphology
 --
 
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `adjectives`
+-- Структура таблицы adjectives
 --
 
-DROP TABLE IF EXISTS `adjectives`;
-CREATE TABLE IF NOT EXISTS `adjectives` (
-  `IID` INTEGER PRIMARY KEY AUTOINCREMENT,
-  `word` varchar(60) NOT NULL,
-  `code` int(11) NOT NULL,
-  `type_sub` varchar(60) DEFAULT NULL
+DROP TABLE IF EXISTS adjectives;
+CREATE TABLE IF NOT EXISTS adjectives (
+  IID INTEGER PRIMARY KEY AUTOINCREMENT,
+  word varchar(60) NOT NULL,
+  code int(11) NOT NULL,
+  type_sub varchar(60) DEFAULT NULL
 );
 
 --
--- Дамп данных таблицы `adjectives`
+-- Дамп данных таблицы adjectives
 --
 
-INSERT INTO `adjectives` (`IID`, `word`, `code`, `type_sub`) VALUES
+INSERT INTO adjectives (IID, word, code, type_sub) VALUES
 (15, 'а капелла', 99784, 'неизм'),
 (39, 'а-конто', 4084670, 'неизм'),
 (41, 'а-ля фуршет', 99785, 'неизм'),
@@ -1059,7 +1059,7 @@ INSERT INTO `adjectives` (`IID`, `word`, `code`, `type_sub`) VALUES
 (78519, 'баламутский', 4194139, NULL),
 (78596, 'балансерский', 4194166, NULL),
 (78635, 'балансирный', 100893, NULL);
-INSERT INTO `adjectives` (`IID`, `word`, `code`, `type_sub`) VALUES
+INSERT INTO adjectives (IID, word, code, type_sub) VALUES
 (78755, 'балансировочный', 100894, NULL),
 (78801, 'балансирующий', 100895, NULL),
 (78821, 'балансный', 588949, NULL),
@@ -2110,7 +2110,7 @@ INSERT INTO `adjectives` (`IID`, `word`, `code`, `type_sub`) VALUES
 (148145, 'болидный', 4196042, NULL),
 (148184, 'болометрический', 590138, NULL),
 (148237, 'болоньевый', 4196069, NULL);
-INSERT INTO `adjectives` (`IID`, `word`, `code`, `type_sub`) VALUES
+INSERT INTO adjectives (IID, word, code, type_sub) VALUES
 (148314, 'болотистый', 101561, NULL),
 (148371, 'болотный', 47367, NULL),
 (148434, 'болотоведческий', 590145, NULL),
@@ -3169,7 +3169,7 @@ INSERT INTO `adjectives` (`IID`, `word`, `code`, `type_sub`) VALUES
 (274180, 'водноспортивный', 102279, NULL),
 (274219, 'воднотранспортный', 102280, NULL),
 (274246, 'водный', 47802, NULL);
-INSERT INTO `adjectives` (`IID`, `word`, `code`, `type_sub`) VALUES
+INSERT INTO adjectives (IID, word, code, type_sub) VALUES
 (274289, 'водобойный', 591293, NULL),
 (274389, 'водовозный', 102281, NULL),
 (274428, 'водовыпускной', 591300, NULL),
@@ -4192,7 +4192,7 @@ INSERT INTO `adjectives` (`IID`, `word`, `code`, `type_sub`) VALUES
 (516543, 'гетерозисный', 103021, NULL),
 (516594, 'гетеронимный', 4085429, NULL),
 (516613, 'гетерономный', 592119, NULL);
-INSERT INTO `adjectives` (`IID`, `word`, `code`, `type_sub`) VALUES
+INSERT INTO adjectives (IID, word, code, type_sub) VALUES
 (516720, 'гетеротрофный', 592126, NULL),
 (516759, 'гетерохромный', 592133, NULL),
 (516811, 'гетероциклический', 592140, NULL),
@@ -5236,7 +5236,7 @@ INSERT INTO `adjectives` (`IID`, `word`, `code`, `type_sub`) VALUES
 (595265, 'девчонкин', 103662, NULL),
 (595295, 'девчоночий', 103663, NULL),
 (595387, 'девчушкин', 103664, NULL);
-INSERT INTO `adjectives` (`IID`, `word`, `code`, `type_sub`) VALUES
+INSERT INTO adjectives (IID, word, code, type_sub) VALUES
 (595432, 'девяностолетний', 103665, NULL),
 (595459, 'девяностый', 103666, NULL),
 (595546, 'девясильный', 103667, NULL),
@@ -6269,7 +6269,7 @@ INSERT INTO `adjectives` (`IID`, `word`, `code`, `type_sub`) VALUES
 (751596, 'епископский', 104379, NULL),
 (751629, 'епитимийный', 104380, NULL),
 (751680, 'епитрахильный', 104381, NULL);
-INSERT INTO `adjectives` (`IID`, `word`, `code`, `type_sub`) VALUES
+INSERT INTO adjectives (IID, word, code, type_sub) VALUES
 (751744, 'ералашный', 104382, NULL),
 (751876, 'еретический', 104383, NULL),
 (751922, 'еретичный', 104384, NULL),
@@ -7329,7 +7329,7 @@ INSERT INTO `adjectives` (`IID`, `word`, `code`, `type_sub`) VALUES
 (1001286, 'зефирный', 105163, NULL),
 (1001313, 'зефировый', 105164, NULL),
 (1001367, 'зигзаговидный', 105165, NULL);
-INSERT INTO `adjectives` (`IID`, `word`, `code`, `type_sub`) VALUES
+INSERT INTO adjectives (IID, word, code, type_sub) VALUES
 (1001402, 'зигзагообразный', 105166, NULL),
 (1001454, 'зигоморфный', 595318, NULL),
 (1001532, 'зиждительный', 105167, NULL),
@@ -8345,7 +8345,7 @@ INSERT INTO `adjectives` (`IID`, `word`, `code`, `type_sub`) VALUES
 (1145508, 'каленый', 105893, NULL),
 (1145551, 'калеченый', 595962, NULL),
 (1146026, 'калибровальный', 105894, NULL);
-INSERT INTO `adjectives` (`IID`, `word`, `code`, `type_sub`) VALUES
+INSERT INTO adjectives (IID, word, code, type_sub) VALUES
 (1146276, 'калибровочный', 105895, NULL),
 (1146328, 'калибровый', 105896, NULL),
 (1146392, 'калиевый', 105897, NULL),
@@ -9364,7 +9364,7 @@ INSERT INTO `adjectives` (`IID`, `word`, `code`, `type_sub`) VALUES
 (1230884, 'кондуитный', 106614, NULL),
 (1230945, 'кондукторный', 106615, NULL),
 (1230972, 'кондукторский', 106616, NULL);
-INSERT INTO `adjectives` (`IID`, `word`, `code`, `type_sub`) VALUES
+INSERT INTO adjectives (IID, word, code, type_sub) VALUES
 (1231030, 'коневодческий', 106617, NULL),
 (1231057, 'коневой', 596732, NULL),
 (1231084, 'коневый', 4159652, NULL),
@@ -10382,7 +10382,7 @@ INSERT INTO `adjectives` (`IID`, `word`, `code`, `type_sub`) VALUES
 (1314494, 'кучеров', 107382, NULL),
 (1314535, 'кучерской', 107383, NULL),
 (1314562, 'кучерявенький', 107384, NULL);
-INSERT INTO `adjectives` (`IID`, `word`, `code`, `type_sub`) VALUES
+INSERT INTO adjectives (IID, word, code, type_sub) VALUES
 (1314669, 'кучерявый', 107385, NULL),
 (1314857, 'кучковатый', 107386, NULL),
 (1314901, 'кучный', 107387, NULL),
@@ -11413,7 +11413,7 @@ INSERT INTO `adjectives` (`IID`, `word`, `code`, `type_sub`) VALUES
 (1391732, 'малопонятный', 108175, NULL),
 (1391763, 'малопочтенный', 108176, NULL),
 (1391802, 'малоприбыльный', 108177, NULL);
-INSERT INTO `adjectives` (`IID`, `word`, `code`, `type_sub`) VALUES
+INSERT INTO adjectives (IID, word, code, type_sub) VALUES
 (1391829, 'малопривлекательный', 108178, NULL),
 (1391856, 'малопригодный', 108179, NULL),
 (1391883, 'малоприменимый', 108180, NULL),
@@ -12400,7 +12400,7 @@ INSERT INTO `adjectives` (`IID`, `word`, `code`, `type_sub`) VALUES
 (1459024, 'многотиражный', 108945, NULL),
 (1459063, 'многотомный', 108946, NULL),
 (1459090, 'многотоннажный', 108947, NULL);
-INSERT INTO `adjectives` (`IID`, `word`, `code`, `type_sub`) VALUES
+INSERT INTO adjectives (IID, word, code, type_sub) VALUES
 (1459117, 'многотонный', 108948, NULL),
 (1459162, 'многотрудный', 108949, NULL),
 (1459189, 'многотысячелетний', 598671, NULL),
@@ -13427,7 +13427,7 @@ INSERT INTO `adjectives` (`IID`, `word`, `code`, `type_sub`) VALUES
 (1677713, 'небренный', 109790, NULL),
 (1677802, 'небритый', 51809, NULL),
 (1677833, 'неброский', 109791, NULL);
-INSERT INTO `adjectives` (`IID`, `word`, `code`, `type_sub`) VALUES
+INSERT INTO adjectives (IID, word, code, type_sub) VALUES
 (1677864, 'небулярный', 599119, NULL),
 (1677910, 'небывалый', 51814, NULL),
 (1677987, 'небьющийся', 109792, NULL),
@@ -14418,7 +14418,7 @@ INSERT INTO `adjectives` (`IID`, `word`, `code`, `type_sub`) VALUES
 (1740796, 'нераскаянный', 110598, NULL),
 (1740823, 'нераскрывшийся', 110599, NULL),
 (1740850, 'нераскрытый', 110600, NULL);
-INSERT INTO `adjectives` (`IID`, `word`, `code`, `type_sub`) VALUES
+INSERT INTO adjectives (IID, word, code, type_sub) VALUES
 (1740889, 'нераспаханный', 110601, NULL),
 (1740916, 'нераспечатанный', 110602, NULL),
 (1740967, 'нераспорядительный', 110603, NULL),
@@ -15430,7 +15430,7 @@ INSERT INTO `adjectives` (`IID`, `word`, `code`, `type_sub`) VALUES
 (1908739, 'общеудобный', 111401, NULL),
 (1908766, 'общеукрепляющий', 4149514, NULL),
 (1908805, 'общеупотребительный', 111402, NULL);
-INSERT INTO `adjectives` (`IID`, `word`, `code`, `type_sub`) VALUES
+INSERT INTO adjectives (IID, word, code, type_sub) VALUES
 (1908844, 'общеустановленный', 111403, NULL),
 (1908871, 'общефизический', 599861, NULL),
 (1908898, 'общефилософский', 111404, NULL),
@@ -16468,7 +16468,7 @@ INSERT INTO `adjectives` (`IID`, `word`, `code`, `type_sub`) VALUES
 (2184296, 'павлиновый', 112143, NULL),
 (2184336, 'павлиный', 112144, NULL),
 (2184375, 'паводковый', 112145, NULL);
-INSERT INTO `adjectives` (`IID`, `word`, `code`, `type_sub`) VALUES
+INSERT INTO adjectives (IID, word, code, type_sub) VALUES
 (2184414, 'паводочный', 112146, NULL),
 (2184486, 'павший', 112147, NULL),
 (2184630, 'пагубный', 53364, NULL),
@@ -17478,7 +17478,7 @@ INSERT INTO `adjectives` (`IID`, `word`, `code`, `type_sub`) VALUES
 (2413738, 'пластинчатожаберный', 112912, NULL),
 (2413771, 'пластинчатоклювый', 112913, NULL),
 (2413816, 'пластинчатоусый', 112914, NULL);
-INSERT INTO `adjectives` (`IID`, `word`, `code`, `type_sub`) VALUES
+INSERT INTO adjectives (IID, word, code, type_sub) VALUES
 (2413843, 'пластинчатый', 112915, NULL),
 (2413901, 'пластический', 112916, NULL),
 (2413945, 'пластичный', 112917, NULL),
@@ -18496,7 +18496,7 @@ INSERT INTO `adjectives` (`IID`, `word`, `code`, `type_sub`) VALUES
 (2635037, 'полупролетарский', 602332, NULL),
 (2635064, 'полупроницаемый', 602339, NULL),
 (2635103, 'полупроцентный', 602346, NULL);
-INSERT INTO `adjectives` (`IID`, `word`, `code`, `type_sub`) VALUES
+INSERT INTO adjectives (IID, word, code, type_sub) VALUES
 (2635130, 'полупудовой', 113663, NULL),
 (2635137, 'полупудовый', 113664, NULL),
 (2635164, 'полупустой', 602353, NULL),
@@ -19498,7 +19498,7 @@ INSERT INTO `adjectives` (`IID`, `word`, `code`, `type_sub`) VALUES
 (2808516, 'привольный', 114449, NULL),
 (2809240, 'приворотный', 114450, NULL),
 (2809709, 'привходящий', 114451, NULL);
-INSERT INTO `adjectives` (`IID`, `word`, `code`, `type_sub`) VALUES
+INSERT INTO adjectives (IID, word, code, type_sub) VALUES
 (2809908, 'привычный', 54359, NULL),
 (2810050, 'привязанный', 114452, NULL),
 (2810204, 'привязной', 114453, NULL),
@@ -20493,7 +20493,7 @@ INSERT INTO `adjectives` (`IID`, `word`, `code`, `type_sub`) VALUES
 (3094021, 'пшеничный', 115203, NULL),
 (3094073, 'пшенный', 115204, NULL),
 (3094247, 'пшютоватый', 115205, NULL);
-INSERT INTO `adjectives` (`IID`, `word`, `code`, `type_sub`) VALUES
+INSERT INTO adjectives (IID, word, code, type_sub) VALUES
 (3094300, 'пыжиковый', 115206, NULL),
 (3094408, 'пыжовый', 603711, NULL),
 (3094447, 'пыжьяновый', 115207, NULL),
@@ -21492,7 +21492,7 @@ INSERT INTO `adjectives` (`IID`, `word`, `code`, `type_sub`) VALUES
 (3303824, 'репродукторный', 4227491, NULL),
 (3303851, 'репродукционный', 115921, NULL),
 (3304120, 'репсовый', 115922, NULL);
-INSERT INTO `adjectives` (`IID`, `word`, `code`, `type_sub`) VALUES
+INSERT INTO adjectives (IID, word, code, type_sub) VALUES
 (3304159, 'рептильный', 115923, NULL),
 (3304186, 'репульсионный', 604551, NULL),
 (3304225, 'репчатый', 115924, NULL),
@@ -22515,7 +22515,7 @@ INSERT INTO `adjectives` (`IID`, `word`, `code`, `type_sub`) VALUES
 (3392413, 'свой', 605265, NULL),
 (3392678, 'свойский', 116713, NULL),
 (3392743, 'свойственный', 55369, NULL);
-INSERT INTO `adjectives` (`IID`, `word`, `code`, `type_sub`) VALUES
+INSERT INTO adjectives (IID, word, code, type_sub) VALUES
 (3393164, 'сволочной', 116714, NULL),
 (3393570, 'сворный', 116715, NULL),
 (3394023, 'связанный', 116716, NULL),
@@ -23537,7 +23537,7 @@ INSERT INTO `adjectives` (`IID`, `word`, `code`, `type_sub`) VALUES
 (3509357, 'смолокурный', 117495, NULL),
 (3509396, 'смолоносный', 117496, NULL),
 (3509435, 'смолоперегонный', 117497, NULL);
-INSERT INTO `adjectives` (`IID`, `word`, `code`, `type_sub`) VALUES
+INSERT INTO adjectives (IID, word, code, type_sub) VALUES
 (3509747, 'смольевой', 117498, NULL),
 (3509786, 'смольный', 117499, NULL),
 (3509886, 'смолянистый', 117500, NULL),
@@ -24555,7 +24555,7 @@ INSERT INTO `adjectives` (`IID`, `word`, `code`, `type_sub`) VALUES
 (3645121, 'стуловой', 118227, NULL),
 (3645278, 'ступенчатый', 56294, NULL),
 (3645402, 'ступичный', 606798, NULL);
-INSERT INTO `adjectives` (`IID`, `word`, `code`, `type_sub`) VALUES
+INSERT INTO adjectives (IID, word, code, type_sub) VALUES
 (3646285, 'стыдливый', 118228, NULL),
 (3646348, 'стыдный', 118229, NULL),
 (3646815, 'стыковой', 118230, NULL),
@@ -25586,7 +25586,7 @@ INSERT INTO `adjectives` (`IID`, `word`, `code`, `type_sub`) VALUES
 (3743474, 'транснациональный', 4087494, NULL),
 (3743481, 'трансокеанский', 607645, NULL),
 (3743520, 'транспарантный', 118996, NULL);
-INSERT INTO `adjectives` (`IID`, `word`, `code`, `type_sub`) VALUES
+INSERT INTO adjectives (IID, word, code, type_sub) VALUES
 (3743547, 'транспирационный', 118997, NULL),
 (3743728, 'трансплантатный', 118998, NULL),
 (3743755, 'трансплантационный', 118999, NULL),
@@ -26619,7 +26619,7 @@ INSERT INTO `adjectives` (`IID`, `word`, `code`, `type_sub`) VALUES
 (3886246, 'усопший', 119752, NULL),
 (3886292, 'усохлый', 608674, NULL),
 (3886458, 'успевающий', 119753, NULL);
-INSERT INTO `adjectives` (`IID`, `word`, `code`, `type_sub`) VALUES
+INSERT INTO adjectives (IID, word, code, type_sub) VALUES
 (3886504, 'успенский', 119754, NULL),
 (3886531, 'успеньев', 119755, NULL),
 (3886629, 'успешный', 57039, NULL),
@@ -27638,7 +27638,7 @@ INSERT INTO `adjectives` (`IID`, `word`, `code`, `type_sub`) VALUES
 (3998314, 'христарадный', 120530, NULL),
 (3998353, 'христианизированный', 120531, NULL),
 (3998592, 'христианизованный', 120532, NULL);
-INSERT INTO `adjectives` (`IID`, `word`, `code`, `type_sub`) VALUES
+INSERT INTO adjectives (IID, word, code, type_sub) VALUES
 (3998884, 'христианский', 57399, NULL),
 (3998985, 'христов', 57404, NULL),
 (3999024, 'христолюбивый', 120534, NULL),
@@ -28667,7 +28667,7 @@ INSERT INTO `adjectives` (`IID`, `word`, `code`, `type_sub`) VALUES
 (4084462, 'шкотовый', 121288, NULL),
 (4084752, 'шкурнический', 121289, NULL),
 (4084786, 'шкурный', 121290, NULL);
-INSERT INTO `adjectives` (`IID`, `word`, `code`, `type_sub`) VALUES
+INSERT INTO adjectives (IID, word, code, type_sub) VALUES
 (4084910, 'шлакобетонный', 121291, NULL),
 (4084949, 'шлакоблочный', 121292, NULL),
 (4085199, 'шлаковидный', 121293, NULL),
