@@ -16,7 +16,7 @@ class CreateNotesTable extends Migration
         Schema::create('notes', function (Blueprint $table) {
             $table->bigIncrements('id');
 
-            $table->string('text');
+            $table->longText('text');
             $table->string('code')->unique();
             $table->string('t_code')->unique();
             $table->string('password_hash', 32)->nullable();

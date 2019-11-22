@@ -61,6 +61,11 @@ class NoteService {
     public function findByCodeAndPassword(string $code, string $password) : ?Note
     {
         $note = Note::whereCode($code)->wherePasswordHash(md5($password))->first();
+
+        if ($note == null) {
+            return null;
+        }
+
         return $this->decryptNote($note, $password);
     }
 
