@@ -21,10 +21,10 @@
 
 DROP TABLE IF EXISTS adjectives;
 CREATE TABLE IF NOT EXISTS adjectives (
-  IID int(11) NOT NULL,
-  word varchar(60) NOT NULL,
-  code int(11) NOT NULL,
-  type_sub varchar(60) DEFAULT NULL
+  IID INT NOT NULL,
+  word TEXT NOT NULL,
+  code INT NOT NULL,
+  type_sub TEXT DEFAULT NULL
 );
 
 --
