@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Services\NoteService;
+use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Facades\Session;
 use App\Exceptions\NoteNotStoredException;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
@@ -32,10 +33,12 @@ class NoteController extends Controller
             ]);
         }
 
+        $url = URL::to($note->t_code);
+
         return redirect(route('index'))
         ->with('message', [
             'type' => 'success',
-            'text' => "Заметка сохранена. Код для получения: {$note->code}. Ссылка: http://127.0.0.1:8000/view/{$note->t_code}"
+            'text' => "Заметка сохранена. Код для получения: {$note->code}. Ссылка: {$url}"
             ]);
      }
 
