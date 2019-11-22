@@ -21,7 +21,7 @@
 </div>
 <div class="row">
       <div class="col">
-<div class="d-sm-none">
+<div class="d-lg-none">
     <div class="card">
             <div class="card-body">
     {!! Form::open(['route' => 'note.view.post', 'class' => '', 'method' => 'post']) !!}
