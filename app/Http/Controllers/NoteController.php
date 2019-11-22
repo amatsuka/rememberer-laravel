@@ -33,7 +33,7 @@ class NoteController extends Controller
             ]);
         }
 
-        $url = URL::to($note->t_code);
+        $url = URL::to('/view/' . $note->t_code);
 
         return redirect(route('index'))
         ->with('message', [
