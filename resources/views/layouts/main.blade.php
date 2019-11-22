@@ -5,11 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>Laravel</title>
+    <title>Запоминатель 3000</title>
     <link href="{{ URL::asset('css/app.css') }}" rel="stylesheet" type="text/css"/>
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:400,500,700,400italic|Material+Icons"/>
 </head>
-<body>
+<body class="bg1">
 
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
@@ -22,7 +22,7 @@
           <div class="md-1 d-none d-md-block">
     {!! Form::open(['route' => 'note.view.post', 'class' => 'form-inline', 'method' => 'post']) !!}
     <div class="form-group">
-        {!! Form::text('code', $code ?? null, ['class' => 'form-control', 'placeholder' => 'Название']) !!}
+        {!! Form::text('code', $code ?? null, ['class' => 'form-control', 'placeholder' => 'Кодовая фраза ;)']) !!}
     </div>
         <div class="form-group mx-sm-3">
             {!! Form::text('password', null, ['class' => 'form-control',  'placeholder' => 'Пароль']) !!}
@@ -40,7 +40,7 @@
   </nav>
 
   <!-- Page Content -->
-  <div class="container">
+  <div class="container bgw">
     @yield('content')
   </div>
 </div>

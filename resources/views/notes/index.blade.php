@@ -1,24 +1,25 @@
 @extends('layouts.main')
 
 @section('content')
-<div class="row mt-3">
+@isset($message)
+<div class="row pt-3">
     <div class="col">
-        @isset($message)
+
         @if ($message != null)
             @if ($message['type'] == 'success')
-                <div class="alert alert-success" role="alert">
+                <div class="alert alert-success m-0" role="alert">
                     {!! $message['text'] !!}
                 </div>
             @endif
             @if ($message['type'] == 'error')
-                <div class="alert alert-error" role="alert">
+                <div class="alert alert-error m-0" role="alert">
                     {!! $message['text'] !!}
                 </div>
             @endif
         @endif
-        @endisset
     </div>
 </div>
+        @endisset
 <div class="row">
       <div class="col">
 <div class="d-lg-none">
@@ -26,7 +27,7 @@
             <div class="card-body">
     {!! Form::open(['route' => 'note.view.post', 'class' => '', 'method' => 'post']) !!}
     <div class="form-group">
-        {!! Form::text('code', $code ?? null, ['class' => 'form-control', 'placeholder' => 'Название']) !!}
+        {!! Form::text('code', $code ?? null, ['class' => 'form-control', 'placeholder' => 'Кодовая фраза ;)']) !!}
     </div>
         <div class="form-group">
             {!! Form::text('password', null, ['class' => 'form-control',  'placeholder' => 'Пароль']) !!}
@@ -38,10 +39,8 @@
       </div>
           </div>
       </div>
-<div class="row mt-3">
+<div class="row p-3">
     <div class="col">
-        <div class="card">
-            <div class="card-body">
                 <div id="editor-container"></div>
                 {!! Form::open(['route' => 'note.store', 'method' => 'post', 'id' => 'form']) !!}
   <div class="form-group">
@@ -56,8 +55,6 @@
 {!! Form::submit('Запомнить', ['class' => 'btn btn-primary']) !!}
 
 {!! Form::close() !!}
-            </div>
-        </div>
     </div>
 </div>
 @endsection

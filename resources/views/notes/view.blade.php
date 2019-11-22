@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('content')
-<div class="row mt-3">
+<div class="row">
     <div class="col">
         @isset($message)
         @if ($message != null)
@@ -24,13 +24,9 @@
         @endisset
     </div>
 </div>
-<div class="row">
+<div class="row p-3">
     <div class="col">
-        <div class="card">
-            <div class="card-body">
                 <div id="editor-container">@isset($note){{$note->text}}@endisset</div>
-            </div>
-        </div>
         <div class="card mt-3">
             <div class="card-body">
                 {!! Form::open(['route' => 'note.store', 'method' => 'post', 'id' => 'form']) !!}
@@ -43,8 +39,8 @@
 {!! Form::submit('Пересохранить', ['class' => 'btn btn-primary']) !!}
 
 {!! Form::close() !!}
-            </div>
-        </div>
+    </div>
+</div>
     </div>
 </div>
 @endsection
