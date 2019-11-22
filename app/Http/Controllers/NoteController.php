@@ -35,7 +35,7 @@ class NoteController extends Controller
         return redirect(route('index'))
         ->with('message', [
             'type' => 'success',
-            'text' => "Заметка сохранена. Код для получения: {$note->code}. Ссылка: http://127.0.0.1:8000/view/{$note->code}"
+            'text' => "Заметка сохранена. Код для получения: {$note->code}. Ссылка: http://127.0.0.1:8000/view/{$note->t_code}"
             ]);
      }
 

@@ -18,6 +18,7 @@ class CreateNotesTable extends Migration
 
             $table->string('text');
             $table->string('code')->unique();
+            $table->string('t_code')->unique();
             $table->string('password_hash', 32)->nullable();
 
             $table->timestamps();

@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('content')
-<div class="row">
+<div class="row mt-3">
     <div class="col">
         @isset($message)
         @if ($message != null)
@@ -22,7 +22,7 @@
         </div>
     </div>
 </div>
-<div class="row mt-5">
+<div class="row">
     <div class="col">
         <div class="card">
             <div class="card-body">

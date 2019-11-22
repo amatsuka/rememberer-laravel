@@ -2,6 +2,7 @@
 namespace App\Services;
 
 use App\Models\Note;
+use Illuminate\Support\Str;
 use App\Exceptions\EmptyCodeException;
 use App\Exceptions\NoteNotStoredException;
 
@@ -37,6 +38,7 @@ class NoteService {
 
 
         $note->code = $code;
+        $note->t_code = Str::slug($code);
         $note->save();
 
         return $note;
@@ -44,12 +46,16 @@ class NoteService {
 
     public function findByCode(string $code) : ?Note
     {
-        return Note::whereCode($code)->wherePasswordHash(null)->first();
+        return Note::where(function ($query) use ($code) {
+            $query->where('code', $code)->orWhere('t_code', $code);
+        })->wherePasswordHash(null)->first();
     }
 
     public function findByCodeIgnorePassword(string $code) : ?Note
     {
-        return Note::whereCode($code)->first();
+        return Note::where(function ($query) use ($code) {
+            $query->where('code', $code)->orWhere('t_code', $code);
+        })->first();
     }
 
     public function findByCodeAndPassword(string $code, string $password) : ?Note
