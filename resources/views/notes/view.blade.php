@@ -7,17 +7,17 @@
         @if ($message != null)
             @if ($message['type'] == 'success')
                 <div class="alert alert-success" role="alert">
-                    {{ $message['text'] }}
+                    {!! $message['text'] !!}
                 </div>
             @endif
             @if ($message['type'] == 'error')
                 <div class="alert alert-error" role="alert">
-                    {{ $message['text'] }}
+                    {!! $message['text'] !!}
                 </div>
             @endif
             @if ($message['type'] == 'warning')
                 <div class="alert alert-warning" role="alert">
-                    {{ $message['text'] }}
+                    {!! $message['text'] !!}
                 </div>
             @endif
         @endif

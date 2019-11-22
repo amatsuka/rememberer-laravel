@@ -14,11 +14,12 @@
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
     <div class="container">
-      <a class="navbar-brand" href="#">Вспомнить легко ;)</a>
+      <a class="navbar-brand" href="/">Вспомнить легко ;)</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
+          <div class="md-1 d-none d-md-block">
     {!! Form::open(['route' => 'note.view.post', 'class' => 'form-inline', 'method' => 'post']) !!}
     <div class="form-group">
         {!! Form::text('code', $code ?? null, ['class' => 'form-control', 'placeholder' => 'Название']) !!}
@@ -28,6 +29,7 @@
         </div>
         {!! Form::submit('Вспомнить', ['class' => 'btn btn-primary']) !!}
     {!! Form::close() !!}
+          </div>
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
             <a class="nav-link" href="#">О проекте</a>
