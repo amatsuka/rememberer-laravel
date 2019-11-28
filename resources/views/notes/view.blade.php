@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('content')
-<div class="row">
+<div class="row p-3">
     <div class="col">
         @isset($message)
         @if ($message != null)
@@ -26,7 +26,8 @@
 </div>
 <div class="row p-3">
     <div class="col">
-                <div id="editor-container">@isset($note){{$note->text}}@endisset</div>
+        @if(isset($note))
+                <div id="editor-container">{{$note->text}}</div>
         <div class="card mt-3">
             <div class="card-body">
                 {!! Form::open(['route' => 'note.store', 'method' => 'post', 'id' => 'form']) !!}
@@ -36,11 +37,13 @@
     {!! Form::text('password', null, ['class' => 'form-control']) !!}
     <small id="passwordHelp" class="form-text text-muted">Этим паролем можно защифровать запись, но это не обязательно ;)</small>
   </div>
-{!! Form::submit('Пересохранить', ['class' => 'btn btn-primary']) !!}
+{!! Form::submit('Сохранить как новую', ['class' => 'btn btn-primary']) !!}
 
 {!! Form::close() !!}
     </div>
 </div>
+@else
+@endif
     </div>
 </div>
 @endsection

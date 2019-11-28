@@ -14,12 +14,16 @@
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
     <div class="container">
-      <a class="navbar-brand" href="/">Вспомнить легко ;)</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarResponsive">
-          <div class="md-1 d-none d-md-block">
+      <a class="navbar-brand" href="/">Логоназвание</a>
+
+
+     <div class="ml-auto md-1 d-sm-block d-lg-none d-md-block d-xl-block">
+          <a class="btn btn-success" href="/" role="button">Создать новую</a>
+                  </div>
+                  <div class="ml-auto md-1 d-none d-md-none d-lg-block d-xl-none">
+          <a class="btn btn-success" href="/" role="button">+</a>
+                  </div>
+          <div class="ml-3 md-1 d-none d-lg-block">
     {!! Form::open(['route' => 'note.view.post', 'class' => 'form-inline', 'method' => 'post']) !!}
     <div class="form-group">
         {!! Form::text('code', $code ?? null, ['class' => 'form-control', 'placeholder' => 'Кодовая фраза ;)']) !!}
@@ -27,9 +31,15 @@
         <div class="form-group mx-sm-3">
             {!! Form::text('password', null, ['class' => 'form-control',  'placeholder' => 'Пароль']) !!}
         </div>
-        {!! Form::submit('Вспомнить', ['class' => 'btn btn-primary']) !!}
+        {!! Form::submit('Найти', ['class' => 'btn btn-primary']) !!}
     {!! Form::close() !!}
           </div>
+           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+
+
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
             <a class="nav-link" href="#">О проекте</a>
