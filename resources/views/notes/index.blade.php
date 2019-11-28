@@ -1,25 +1,6 @@
 @extends('layouts.main')
 
 @section('content')
-@isset($message)
-<div class="row pt-3">
-    <div class="col">
-
-        @if ($message != null)
-            @if ($message['type'] == 'success')
-                <div class="alert alert-success m-0" role="alert">
-                    {!! $message['text'] !!}
-                </div>
-            @endif
-            @if ($message['type'] == 'error')
-                <div class="alert alert-error m-0" role="alert">
-                    {!! $message['text'] !!}
-                </div>
-            @endif
-        @endif
-    </div>
-</div>
-        @endisset
 <div class="d-lg-none row mt-3">
       <div class="col">
 <div>
@@ -39,7 +20,7 @@
       </div>
           </div>
       </div>
-<div class="row p-3">
+<div class="row pt-3">
     <div class="col">
         {!! Form::open(['route' => 'note.store', 'method' => 'post', 'id' => 'form']) !!}
         <div class="form-group">

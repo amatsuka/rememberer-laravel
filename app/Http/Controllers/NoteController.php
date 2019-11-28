@@ -44,14 +44,18 @@ class NoteController extends Controller
 
     public function view(Request $request)
     {
-        if ($request->has('password') && $request->get('password') != null) {
-            $note = $this->noteService->findByCodeAndPassword($request->get('code'), $request->get('password'));
-        } elseif ($request->has('code')) {
-            $note = $this->noteService->findByCode($request->get('code'));
+        $note = null;
+
+        if ($request->get('code') != null) {
+            if ($request->has('password') && $request->get('password') != null) {
+                $note = $this->noteService->findByCodeAndPassword($request->get('code'), $request->get('password'));
+            } elseif ($request->has('code')) {
+                $note = $this->noteService->findByCode($request->get('code'));
+            }
         }
 
         if ($note == null) {
-            return view('notes.view')->with('message', [
+            return redirect(route('index'))->with('message', [
                 'type' => 'warning',
                 'text' => 'Запись не найдена. Введен неверный код либо запись защищена паролем'
             ])->with('code', $request->get('code'));
@@ -77,6 +81,6 @@ class NoteController extends Controller
 
     public function index(Request $request)
     {
-        return view('notes.index', ['message' => Session::get('message')]);
+        return view('notes.index', ['message' => Session::get('message'), 'code' => Session::get('code')]);
     }
 }
