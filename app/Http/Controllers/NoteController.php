@@ -75,7 +75,10 @@ class NoteController extends Controller
         if ($note->password_hash == null) {
             return view('notes.view', compact('note'));
         } else {
-            return redirect('note.view.get')->with('code', $code);
+            return redirect('/')->with('message', [
+                'type' => 'warning',
+                'text' => 'Запись не найдена. Введен неверный код либо запись защищена паролем'
+            ])->with('code', $note->code);
         }
     }
 
