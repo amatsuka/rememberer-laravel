@@ -41,11 +41,12 @@
       </div>
 <div class="row p-3">
     <div class="col">
+        {!! Form::open(['route' => 'note.store', 'method' => 'post', 'id' => 'form']) !!}
         <div class="form-group">
         {!! Form::submit('Сохранить', ['class' => 'btn btn-primary']) !!}
   </div>
                 <div id="editor-container"></div>
-                {!! Form::open(['route' => 'note.store', 'method' => 'post', 'id' => 'form']) !!}
+
   <div class="form-group">
        {!! Form::hidden('text', null, ['class' => 'form-control', 'id' => 'text']) !!}
     <small id="textHelp" class="form-text text-muted">Сюда пости свой текст</small>
