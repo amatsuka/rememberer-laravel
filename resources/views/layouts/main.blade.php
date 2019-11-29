@@ -14,7 +14,7 @@
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg static-top navbar-light">
     <div class="container">
-      <a class="navbar-brand" href="/">ТутБудетЛого</a>
+      <!--<a class="navbar-brand" href="/">Лого</a>-->
 
 
      <div class="ml-autod-sm-block d-lg-none d-md-block d-xl-block">
@@ -40,11 +40,11 @@
       <div class="collapse navbar-collapse" id="navbarResponsive">
 
 
-        <!--<ul class="navbar-nav ml-auto">
+        <ul class="navbar-nav ml-auto">
           <li class="nav-item">
             <a class="nav-link" href="#">О проекте</a>
           </li>
-        </ul>-->
+        </ul>
       </div>
     </div>
   </nav>
