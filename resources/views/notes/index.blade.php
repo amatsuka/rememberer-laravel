@@ -2,9 +2,9 @@
 
 @section('content')
 <div class="d-lg-none row mt-3">
-      <div class="col p-0 m-0">
+      <div class="col">
 <div>
-    {!! Form::open(['route' => 'note.view.post', 'class' => '', 'method' => 'post']) !!}
+    {!! Form::open(['route' => 'note.view.post', 'class' => 'md-form my-0', 'method' => 'post']) !!}
     <div class="form-group">
         {!! Form::text('code', $code ?? null, ['class' => 'form-control', 'placeholder' => 'Кодовая фраза ;)']) !!}
     </div>
@@ -18,8 +18,8 @@
       </div>
       <hr class="d-lg-none row mt-3"/>
 <div class="row pt-3">
-    <div class="col p-0">
-        {!! Form::open(['route' => 'note.store', 'method' => 'post', 'id' => 'form']) !!}
+    <div class="col">
+        {!! Form::open(['route' => 'note.store', 'method' => 'post', 'id' => 'form', 'class' => 'md-form my-0']) !!}
         <div class="form-group">
         {!! Form::submit('Сохранить', ['class' => 'btn btn-primary ml-3']) !!}
   </div>

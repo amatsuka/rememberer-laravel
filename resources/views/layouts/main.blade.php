@@ -12,19 +12,19 @@
 <body class="bg1">
 
   <!-- Navigation -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+  <nav class="navbar navbar-expand-lg static-top navbar-light">
     <div class="container">
-      <a class="navbar-brand" href="/">Логоназвание</a>
+      <a class="navbar-brand" href="/">ТутБудетЛого</a>
 
 
-     <div class="ml-auto md-1 d-sm-block d-lg-none d-md-block d-xl-block">
-          <a class="btn btn-success" href="/" role="button">Создать новую</a>
+     <div class="ml-autod-sm-block d-lg-none d-md-block d-xl-block">
+          <a class="btn btn-success" href="/" role="button">Создать заметку</a>
                   </div>
-                  <div class="ml-auto md-1 d-none d-md-none d-lg-block d-xl-none">
+                  <div class="ml-auto d-none d-md-none d-lg-block d-xl-none">
           <a class="btn btn-success" href="/" role="button">+</a>
                   </div>
-          <div class="ml-3 md-1 d-none d-lg-block">
-    {!! Form::open(['route' => 'note.view.post', 'class' => 'form-inline', 'method' => 'post']) !!}
+          <div class="ml-3 d-none d-lg-block">
+    {!! Form::open(['route' => 'note.view.post', 'class' => 'form-inline md-form my-0', 'method' => 'post']) !!}
     <div class="form-group">
         {!! Form::text('code', $code ?? null, ['class' => 'form-control', 'placeholder' => 'Кодовая фраза ;)']) !!}
     </div>
@@ -40,11 +40,11 @@
       <div class="collapse navbar-collapse" id="navbarResponsive">
 
 
-        <ul class="navbar-nav ml-auto">
+        <!--<ul class="navbar-nav ml-auto">
           <li class="nav-item">
             <a class="nav-link" href="#">О проекте</a>
           </li>
-        </ul>
+        </ul>-->
       </div>
     </div>
   </nav>
@@ -79,11 +79,21 @@
     @yield('content')
   </div>
 </div>
-<footer class="footer mt-auto py-3">
-  <div class="container">
+<!-- Footer -->
+<footer class="page-footer font-small blue mt-4">
 
+  <!-- Footer Links -->
+
+  <!-- Footer Links -->
+
+  <!-- Copyright -->
+  <div class="footer-copyright text-center py-3">© 2019 Copyright:
+    <a href="#">amatsuka</a>
   </div>
+  <!-- Copyright -->
+
 </footer>
+<!-- Footer -->
 <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/highlight.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/quill/1.3.7/quill.min.js"></script>
 <script type="text/javascript" src="{{ URL::asset('js/app.js') }}"></script>

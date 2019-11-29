@@ -7,7 +7,7 @@
                 <div id="editor-container">{{$note->text}}</div>
         <div class="card mt-3">
             <div class="card-body">
-                {!! Form::open(['route' => 'note.store', 'method' => 'post', 'id' => 'form']) !!}
+                {!! Form::open(['route' => 'note.store', 'method' => 'post', 'id' => 'form', 'class' => 'md-form my-0']) !!}
        {!! Form::hidden('text', null, ['class' => 'form-control', 'id' => 'text']) !!}
   <div class="form-group">
    {!! Form::label('password', 'Пароль') !!}
