@@ -2,10 +2,8 @@
 
 @section('content')
 <div class="d-lg-none row mt-3">
-      <div class="col">
+      <div class="col p-0 m-0">
 <div>
-    <div class="card">
-            <div class="card-body">
     {!! Form::open(['route' => 'note.view.post', 'class' => '', 'method' => 'post']) !!}
     <div class="form-group">
         {!! Form::text('code', $code ?? null, ['class' => 'form-control', 'placeholder' => 'Кодовая фраза ;)']) !!}
@@ -13,31 +11,29 @@
         <div class="form-group">
             {!! Form::text('password', null, ['class' => 'form-control',  'placeholder' => 'Пароль']) !!}
         </div>
-        {!! Form::submit('Найти', ['class' => 'btn btn-primary']) !!}
+        {!! Form::submit('Найти', ['class' => 'btn btn-primary ml-3']) !!}
     {!! Form::close() !!}
-          </div>
-      </div>
       </div>
           </div>
       </div>
+      <hr class="d-lg-none row mt-3"/>
 <div class="row pt-3">
-    <div class="col">
+    <div class="col p-0">
         {!! Form::open(['route' => 'note.store', 'method' => 'post', 'id' => 'form']) !!}
         <div class="form-group">
-        {!! Form::submit('Сохранить', ['class' => 'btn btn-primary']) !!}
+        {!! Form::submit('Сохранить', ['class' => 'btn btn-primary ml-3']) !!}
   </div>
                 <div id="editor-container"></div>
 
   <div class="form-group">
        {!! Form::hidden('text', null, ['class' => 'form-control', 'id' => 'text']) !!}
-    <small id="textHelp" class="form-text text-muted">Сюда пости свой текст</small>
+    <small id="textHelp" class="form-text text-muted ml-3">Сюда пости свой текст</small>
   </div>
   <div class="form-group">
-   {!! Form::label('password', 'Пароль') !!}
-    {!! Form::text('password', null, ['class' => 'form-control']) !!}
-    <small id="passwordHelp" class="form-text text-muted">Этим паролем можно защифровать запись, но это не обязательно ;)</small>
+    {!! Form::text('password', null, ['class' => 'form-control', 'placeholder' => 'Пароль']) !!}
+    <small id="passwordHelp" class="form-text text-muted ml-3">Этим паролем можно защифровать запись, но это не обязательно ;)</small>
   </div>
-{!! Form::submit('Сохранить', ['class' => 'btn btn-primary']) !!}
+{!! Form::submit('Сохранить', ['class' => 'btn btn-primary ml-3']) !!}
 
 {!! Form::close() !!}
     </div>
