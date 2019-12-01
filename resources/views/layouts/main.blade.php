@@ -18,7 +18,7 @@
 
 
      <div class="ml-autod-sm-block d-lg-none d-md-block d-xl-block">
-          <a class="btn btn-success" href="/" role="button">Создать заметку</a>
+          <a class="btn btn-success" href="/" role="button">Новая заметка</a>
                   </div>
                   <div class="ml-auto d-none d-md-none d-lg-block d-xl-none">
           <a class="btn btn-success" href="/" role="button">+</a>
@@ -29,7 +29,7 @@
         {!! Form::text('code', $code ?? null, ['class' => 'form-control', 'placeholder' => 'Кодовая фраза ;)']) !!}
     </div>
         <div class="form-group mx-sm-3">
-            {!! Form::text('password', null, ['class' => 'form-control',  'placeholder' => 'Пароль']) !!}
+            {!! Form::password('password', null, ['class' => 'form-control',  'placeholder' => 'Пароль']) !!}
         </div>
         {!! Form::submit('Найти', ['class' => 'btn btn-primary']) !!}
     {!! Form::close() !!}
@@ -98,5 +98,20 @@
 <script src="//cdnjs.cloudflare.com/ajax/libs/quill/1.3.7/quill.min.js"></script>
 <script type="text/javascript" src="{{ URL::asset('js/app.js') }}"></script>
 <script type="text/javascript" src="{{ URL::asset('js/quill.js') }}"></script>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript" >
+   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+   m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+   ym(56473762, "init", {
+        clickmap:true,
+        trackLinks:true,
+        accurateTrackBounce:true,
+        webvisor:true
+   });
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/56473762" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
 </body>
 </html>

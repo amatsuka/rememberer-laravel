@@ -17,10 +17,9 @@ class CreateWordsTable extends Migration
             $table->bigIncrements('id');
 
             $table->string('text');
-            $table->integer('number');
             $table->string('locale', 6);
 
-            $table->unique(['text', 'number', 'locale']);
+            $table->unique(['text', 'locale']);
         });
     }
 

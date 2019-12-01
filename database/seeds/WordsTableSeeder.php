@@ -2,7 +2,8 @@
 
 use App\Models\Word;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Database\QueryException;
 
 class WordsTableSeeder extends Seeder
 {
@@ -13,32 +14,32 @@ class WordsTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::unprepared('delete from words');
+        $output = new Symfony\Component\Console\Output\ConsoleOutput();
+        $output->writeln("<info>my message</info>");
 
-        DB::unprepared(file_get_contents(database_path('sql/words-russian-adjectives.sql')));
-        DB::unprepared(file_get_contents(database_path('sql/words-russian-nouns.sql')));
+        $filesInFolder = \File::files(base_path() . '/../json');
 
-        $results = DB::select(DB::raw("SELECT DISTINCT word FROM adjectives"));
+        foreach ($filesInFolder as $file ) {
+            $output->writeln("<info>Обработка " . $file->getBasename() . '</info>');
+            $json = json_decode($file->getContents(), true);
 
-        foreach ($results as $word) {
-            Word::create([
-                'text' => $word->word,
-                'number' => 1,
-                'locale' => 'ru'
-            ]);
+            $words = array_map(function ($a) {
+                return mb_strtolower($a['left_word']) . " " . mb_strtolower($a['right_word']);
+            }, $json['res']);
+
+            $words = array_unique($words);
+
+            try {
+            foreach ($words as $word) {
+                Word::create([
+                    'text' => $word,
+                    'locale' => 'ru'
+                ]);
+            }
+        } catch (QueryException $ex) {
+                $output->writeln("<error>Дубликат " . $word . '</error>');
         }
-
-        $results = DB::select(DB::raw("SELECT DISTINCT word FROM nouns"));
-
-        foreach ($results as $word) {
-            Word::create([
-                'text' => $word->word,
-                'number' => 2,
-                'locale' => 'ru'
-            ]);
+            $output->writeln("<info>Обработан " . $file->getBasename() . '</info>');
         }
-
-        DB::unprepared('drop table adjectives');
-        DB::unprepared('drop table nouns');
     }
 }

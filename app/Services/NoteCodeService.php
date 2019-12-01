@@ -7,21 +7,15 @@ use App\Exceptions\EmptyCodeException;
 
 class NoteCodeService
 {
-    public function generateCode($wordCount = 2) : string
+    public function generateCode() : string
     {
         $locale = App::getLocale();
-        $words = [];
 
-        for ($i = 1; $i <= $wordCount; $i++) {
-            if ($word = Word::whereLocale($locale)->whereNumber($i)->inRandomOrder()->first())
-                $words[] = $word['text'];
+        if ($word = Word::whereLocale($locale)->inRandomOrder()->first()) {
+            return $word->text;
         }
 
-        if (count($words) != $wordCount) {
-            throw new EmptyCodeException();
-        }
-
-        return implode(' ', $words);
+        throw new EmptyCodeException();
     }
 }
 

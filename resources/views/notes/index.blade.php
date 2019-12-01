@@ -9,7 +9,7 @@
         {!! Form::text('code', $code ?? null, ['class' => 'form-control', 'placeholder' => 'Кодовая фраза ;)']) !!}
     </div>
         <div class="form-group">
-            {!! Form::text('password', null, ['class' => 'form-control',  'placeholder' => 'Пароль']) !!}
+            {!! Form::password('password', null, ['class' => 'form-control',  'placeholder' => 'Пароль']) !!}
         </div>
         {!! Form::submit('Найти', ['class' => 'btn btn-primary ml-3']) !!}
     {!! Form::close() !!}
@@ -30,7 +30,7 @@
     <small id="textHelp" class="form-text text-muted ml-3">Сюда пости свой текст</small>
   </div>
   <div class="form-group">
-    {!! Form::text('password', null, ['class' => 'form-control', 'placeholder' => 'Пароль']) !!}
+    {!! Form::password('password', null, ['class' => 'form-control', 'placeholder' => 'Пароль']) !!}
     <small id="passwordHelp" class="form-text text-muted ml-3">Этим паролем можно защифровать запись, но это не обязательно ;)</small>
   </div>
 {!! Form::submit('Сохранить', ['class' => 'btn btn-primary ml-3']) !!}
