@@ -14,7 +14,7 @@
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg static-top navbar-light">
     <div class="container">
-      <!--<a class="navbar-brand" href="/">Лого</a>-->
+      <a class="navbar-brand" href="/">Лого</a>
 
 
      <div class="ml-autod-sm-block d-lg-none d-md-block d-xl-block">
@@ -29,7 +29,7 @@
         {!! Form::text('code', $code ?? null, ['class' => 'form-control', 'placeholder' => 'Кодовая фраза ;)']) !!}
     </div>
         <div class="form-group mx-sm-3">
-            {!! Form::password('password', null, ['class' => 'form-control',  'placeholder' => 'Пароль']) !!}
+            {!! Form::password('password', ['class' => 'form-control',  'placeholder' => 'Пароль']) !!}
         </div>
         {!! Form::submit('Найти', ['class' => 'btn btn-primary']) !!}
     {!! Form::close() !!}
@@ -50,7 +50,7 @@
   </nav>
 
   <!-- Page Content -->
-  <div class="container bgw">
+  <div class="container mt-3">
       @isset($message)
       <div class="row pt-3">
     <div class="col">

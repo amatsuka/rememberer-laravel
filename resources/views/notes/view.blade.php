@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('content')
-<div class="row p-3">
+<div class="row bgw p-3">
     <div class="col">
         @if(isset($note))
                 <div id="editor-container">{{$note->text}}</div>
@@ -12,7 +12,7 @@
        {!! Form::hidden('text', null, ['class' => 'form-control', 'id' => 'text']) !!}
   <div class="form-group">
    {!! Form::label('password', 'Пароль') !!}
-    {!! Form::password('password', null, ['class' => 'form-control']) !!}
+    {!! Form::password('password', ['class' => 'form-control']) !!}
     <small id="passwordHelp" class="form-text text-muted">Этим паролем можно защифровать запись, но это не обязательно ;)</small>
   </div>
 {!! Form::submit('Сохранить как новую', ['class' => 'btn btn-primary']) !!}
