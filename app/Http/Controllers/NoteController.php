@@ -73,7 +73,7 @@ class NoteController extends Controller
         }
 
         if ($note->password_hash == null) {
-            return view('notes.view', compact('note'));
+            return view('notes.view')->with('code', $note->code)->with('note', $note);
         } else {
             return redirect('/')->with('message', [
                 'type' => 'warning',
