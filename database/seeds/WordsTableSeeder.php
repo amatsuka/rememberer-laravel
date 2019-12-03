@@ -28,16 +28,18 @@ class WordsTableSeeder extends Seeder
 
             $words = array_unique($words);
 
-            try {
+
             foreach ($words as $word) {
-                Word::create([
-                    'text' => $word,
-                    'locale' => 'ru'
-                ]);
+                try {
+                    Word::create([
+                        'text' => $word,
+                        'locale' => 'ru'
+                    ]);
+                } catch (QueryException $ex) {
+                    $output->writeln("<error>Дубликат " . $word . '</error>');
+                }
             }
-        } catch (QueryException $ex) {
-                $output->writeln("<error>Дубликат " . $word . '</error>');
-        }
+
             $output->writeln("<info>Обработан " . $file->getBasename() . '</info>');
         }
     }

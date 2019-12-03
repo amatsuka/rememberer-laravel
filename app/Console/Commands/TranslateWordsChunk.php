@@ -39,6 +39,8 @@ class TranslateWordsChunk extends Command
      */
     public function handle()
     {
+        $output = new Symfony\Component\Console\Output\ConsoleOutput();
+
         if (\file_exists(\storage_path('app/last_translated_phrase_id'))) {
             $id = file_get_contents(\storage_path('app/last_translated_phrase_id'));
         }
@@ -49,12 +51,16 @@ class TranslateWordsChunk extends Command
 
         $words = Word::where('id', '>', $id)->where('locale', 'ru')->limit(100)->get();
 
-        $words->each(function(Word $word) {
+        $words->each(function(Word $word) use ($output){
             $translate = YandexTranslateFacade::translate($word->text, 'ru', 'en');
-            Word::create([
-                'text' => $translate,
-                'locale' => 'en'
-            ]);
+              try {
+                    Word::create([
+                    'text' => $translate,
+                    'locale' => 'en'
+                ]);
+             } catch (QueryException $ex) {
+                    $output->writeln("<error>Дубликат " . $word . '</error>');
+                }
         });
 
         \file_put_contents(\storage_path('app/last_translated_phrase_id'), $words->last()->id);
