@@ -51,7 +51,7 @@ class TranslateWordsChunk extends Command
             $id = 1;
         }
 
-        $words = Word::where('id', '>', $id)->where('locale', 'ru')->limit(10000)->get();
+        $words = Word::where('id', '>', $id)->where('locale', 'ru')->limit(2000)->get();
 
         $pack  = $words->map(function(Word $word) {
             return $word->text;
