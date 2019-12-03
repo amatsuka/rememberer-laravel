@@ -59,7 +59,7 @@ class TranslateWordsChunk extends Command
                     'locale' => 'en'
                 ]);
              } catch (QueryException $ex) {
-                    $output->writeln("<error>Дубликат " . $word . '</error>');
+                    $output->writeln("<error>Дубликат " . $word->text .  '-> ' .  $translate . '</error>');
                 }
         });
 
