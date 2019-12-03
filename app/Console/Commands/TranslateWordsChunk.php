@@ -51,19 +51,27 @@ class TranslateWordsChunk extends Command
             $id = 1;
         }
 
-        $words = Word::where('id', '>', $id)->where('locale', 'ru')->limit(100)->get();
+        $words = Word::where('id', '>', $id)->where('locale', 'ru')->limit(10000)->get();
 
-        $words->each(function(Word $word) use ($output){
-            $translate = YandexTranslateFacade::translate($word->text, 'ru', 'en');
-              try {
-                    Word::create([
-                    'text' => $translate,
+        $pack  = $words->map(function(Word $word) {
+            return $word->text;
+        });
+
+        $translate = YandexTranslateFacade::translate($pack->join('. '), 'ru', 'en');
+
+        $resultPack = explode('. ', $translate);
+
+        foreach ($resultPack as $resultPhrase) {
+            try {
+                Word::create([
+                    'text' => strtolower($resultPhrase),
                     'locale' => 'en'
                 ]);
-             } catch (QueryException $ex) {
-                    $output->writeln("<error>Дубликат " . $word->text .  '-> ' .  $translate . '</error>');
-                }
-        });
+            } catch (QueryException $ex) {
+                $output->writeln("<error>Дубликат " .  strtolower($resultPhrase) . '</error>');
+            }
+        }
+
 
         \file_put_contents(\storage_path('app/last_translated_phrase_id'), $words->last()->id);
     }
