@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e05aeea63be5ede35d2a3079a55aa03d",
+    "content-hash": "bbccdf3d1f922726475fb7545d0ba036",
     "packages": [
         {
             "name": "barryvdh/laravel-debugbar",
@@ -3956,6 +3956,62 @@
         }
     ],
     "packages-dev": [
+        {
+            "name": "bluora/laravel-yandex-translate",
+            "version": "v1.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/bluora/laravel-yandex-translate.git",
+                "reference": "22365eeebb921efdb220a91cfffc0f8a289cf5e7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/bluora/laravel-yandex-translate/zipball/22365eeebb921efdb220a91cfffc0f8a289cf5e7",
+                "reference": "22365eeebb921efdb220a91cfffc0f8a289cf5e7",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "codeclimate/php-test-reporter": "dev-master",
+                "illuminate/config": "5.*",
+                "illuminate/container": "5.*",
+                "illuminate/support": "5.*",
+                "mockery/mockery": "0.9.*",
+                "phpmd/phpmd": "@stable",
+                "phpunit/phpunit": "4.*",
+                "squizlabs/php_codesniffer": "^2.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Bluora\\Yandex\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Nikita Gusakov",
+                    "email": "dev@nkt.me"
+                },
+                {
+                    "name": "Rocco Howard",
+                    "email": "rocco@bluora.com.au"
+                }
+            ],
+            "description": "Translate a word or text to a given language using Yandex Translation service.",
+            "keywords": [
+                "laravel",
+                "translation",
+                "yandex"
+            ],
+            "time": "2016-07-22T10:49:33+00:00"
+        },
         {
             "name": "doctrine/instantiator",
             "version": "1.2.0",

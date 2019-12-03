@@ -30,4 +30,7 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
+    'yandex-translate' => [
+        'key' => env('YANDEX_TRANSLATE_KEY', ''),
+    ]
 ];

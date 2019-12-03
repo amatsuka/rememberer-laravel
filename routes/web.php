@@ -20,3 +20,7 @@ Route::post('/store', 'NoteController@store')->name('note.store');
 Route::post('/view', 'NoteController@view')->name('note.view.post');
 Route::get('/view', 'NoteController@view')->name('note.view.get');
 Route::get('/view/{code}', 'NoteController@viewDirectly')->name('note.view-directly');
+Route::get('locale/{locale}', function ($locale) {
+    Session::put('locale', $locale);
+    return redirect()->back();
+});

@@ -15,8 +15,6 @@
   <nav class="navbar navbar-expand-lg static-top navbar-light">
     <div class="container">
       <a class="navbar-brand" href="/">@lang('messages.logo')</a>
-
-
      <div class="ml-autod-sm-block d-lg-none d-md-block d-xl-block">
           <a class="btn btn-success" href="/" role="button">@lang('messages.new_note')</a>
                   </div>
@@ -38,11 +36,16 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
-
-
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
             <a class="nav-link" href="#">@lang('messages.menu_about')</a>
+          </li>
+          <li class="nav-item">
+             @if (Session::get('locale') == 'en')
+      <a class="lang ru" href="/locale/ru"><img src='/images/ru.svg'></a>
+      @else
+      <a class="lang en" href="/locale/en"><img src='/images/gb.svg'></a>
+      @endif
           </li>
         </ul>
       </div>
