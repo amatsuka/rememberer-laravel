@@ -15,7 +15,7 @@ class TranslateWordsChunk extends Command
      *
      * @var string
      */
-    protected $signature = 'words:translatechunk';
+    protected $signature = 'words:translatechunk {count}';
 
     /**
      * The console command description.
@@ -41,7 +41,10 @@ class TranslateWordsChunk extends Command
      */
     public function handle()
     {
+        $count = $this->argument('count');
         $output = new ConsoleOutput();
+
+        for ($i = 0; $i <= $count; $i++) {
 
         if (\file_exists(\storage_path('app/last_translated_phrase_id'))) {
             $id = file_get_contents(\storage_path('app/last_translated_phrase_id'));
@@ -51,7 +54,7 @@ class TranslateWordsChunk extends Command
             $id = 1;
         }
 
-        $words = Word::where('id', '>', $id)->where('locale', 'ru')->limit(2000)->get();
+        $words = Word::where('id', '>', $id)->where('locale', 'ru')->limit(200)->get();
 
         $pack  = $words->map(function(Word $word) {
             return $word->text;
@@ -75,4 +78,5 @@ class TranslateWordsChunk extends Command
 
         \file_put_contents(\storage_path('app/last_translated_phrase_id'), $words->last()->id);
     }
+}
 }
