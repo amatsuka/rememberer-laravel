@@ -3,6 +3,7 @@ namespace App\Services;
 
 use App\Models\Note;
 use Illuminate\Support\Str;
+use Illuminate\Support\Carbon;
 use App\Exceptions\EmptyCodeException;
 use App\Exceptions\NoteNotStoredException;
 
@@ -67,6 +68,10 @@ class NoteService {
         }
 
         return $this->decryptNote($note, $password);
+    }
+
+    public function clearExpired() {
+        return Note::where('created_at', '<', Carbon::now()->subDays(2))->delete();
     }
 
     private function encryptNote(Note $note, string $password) : Note {

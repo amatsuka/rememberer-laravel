@@ -15,7 +15,6 @@ class WordsTableSeeder extends Seeder
     public function run()
     {
         $output = new Symfony\Component\Console\Output\ConsoleOutput();
-        $output->writeln("<info>my message</info>");
 
         $filesInFolder = \File::files(base_path() . '/../json');
 
