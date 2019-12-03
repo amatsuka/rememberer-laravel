@@ -2,8 +2,8 @@
 
 use App\Models\Word;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\Log;
 use Illuminate\Database\QueryException;
+use Symfony\Component\Console\Output\ConsoleOutput;
 
 class WordsTableSeeder extends Seeder
 {
@@ -14,7 +14,7 @@ class WordsTableSeeder extends Seeder
      */
     public function run()
     {
-        $output = new Symfony\Component\Console\Output\ConsoleOutput();
+        $output = new ConsoleOutput();
 
         $filesInFolder = \File::files(base_path() . '/../json');
 

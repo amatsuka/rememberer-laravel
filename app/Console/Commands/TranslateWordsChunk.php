@@ -5,6 +5,7 @@ namespace App\Console\Commands;
 use App\Models\Word;
 use Illuminate\Console\Command;
 use Bluora\Yandex\Facades\YandexTranslateFacade;
+use Symfony\Component\Console\Output\ConsoleOutput;
 
 class TranslateWordsChunk extends Command
 {
@@ -39,7 +40,7 @@ class TranslateWordsChunk extends Command
      */
     public function handle()
     {
-        $output = new Symfony\Component\Console\Output\ConsoleOutput();
+        $output = new ConsoleOutput();
 
         if (\file_exists(\storage_path('app/last_translated_phrase_id'))) {
             $id = file_get_contents(\storage_path('app/last_translated_phrase_id'));
