@@ -4,6 +4,7 @@ namespace App\Console\Commands;
 
 use App\Models\Word;
 use Illuminate\Console\Command;
+use Illuminate\Database\QueryException;
 use Bluora\Yandex\Facades\YandexTranslateFacade;
 use Symfony\Component\Console\Output\ConsoleOutput;
 
