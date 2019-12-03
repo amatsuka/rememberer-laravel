@@ -38,7 +38,7 @@ class NoteController extends Controller
         return redirect(route('index'))
         ->with('message', [
             'type' => 'success',
-            'text' => "Фраза для получения: <b>{$note->code}</b><br/> Ссылка: <a href='{$url}'>{$url}</a>"
+            'text' => __('messages.phrase_to_get') . ": <b>{$note->code}</b><br/> " .  __('messages.link') . ": <a href='{$url}'>{$url}</a>"
             ]);
      }
 
@@ -57,7 +57,7 @@ class NoteController extends Controller
         if ($note == null) {
             return redirect(route('index'))->with('message', [
                 'type' => 'warning',
-                'text' => 'Запись не найдена. Введен неверный код либо запись защищена паролем'
+                'text' => __('messages.note_not_found')
             ])->with('code', $request->get('code'));
         }
 
@@ -77,7 +77,7 @@ class NoteController extends Controller
         } else {
             return redirect('/')->with('message', [
                 'type' => 'warning',
-                'text' => 'Запись не найдена. Введен неверный код либо запись защищена паролем'
+                'text' => __('messages.note_not_found')
             ])->with('code', $note->code);
         }
     }

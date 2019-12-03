@@ -11,11 +11,11 @@
                 @csrf
        {!! Form::hidden('text', null, ['class' => 'form-control', 'id' => 'text']) !!}
   <div class="form-group">
-   {!! Form::label('password', 'Пароль') !!}
+   {!! Form::label('password', __('messages.password_placeholder')) !!}
     {!! Form::password('password', ['class' => 'form-control']) !!}
-    <small id="passwordHelp" class="form-text text-muted">Этим паролем можно защифровать запись, но это не обязательно ;)</small>
+    <small id="passwordHelp" class="form-text text-muted">@lang('messages.password_label')</small>
   </div>
-{!! Form::submit('Сохранить как новую', ['class' => 'btn btn-primary']) !!}
+{!! Form::submit(__('messages.button_save_as_new'), ['class' => 'btn btn-primary']) !!}
 
 {!! Form::close() !!}
     </div>

@@ -14,11 +14,11 @@
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg static-top navbar-light">
     <div class="container">
-      <a class="navbar-brand" href="/">Лого</a>
+      <a class="navbar-brand" href="/">@lang('messages.logo')</a>
 
 
      <div class="ml-autod-sm-block d-lg-none d-md-block d-xl-block">
-          <a class="btn btn-success" href="/" role="button">Новая заметка</a>
+          <a class="btn btn-success" href="/" role="button">@lang('messages.new_note')</a>
                   </div>
                   <div class="ml-auto d-none d-md-none d-lg-block d-xl-none">
           <a class="btn btn-success" href="/" role="button">+</a>
@@ -26,12 +26,12 @@
           <div class="ml-3 d-none d-lg-block">
     {!! Form::open(['route' => 'note.view.post', 'class' => 'form-inline md-form my-0', 'method' => 'post']) !!}
     <div class="form-group">
-        {!! Form::text('code', $code ?? null, ['class' => 'form-control', 'placeholder' => 'Кодовая фраза ;)']) !!}
+        {!! Form::text('code', $code ?? null, ['class' => 'form-control', 'placeholder' => __('messages.code_phrase_placeholder')]) !!}
     </div>
         <div class="form-group mx-sm-3">
-            {!! Form::password('password', ['class' => 'form-control',  'placeholder' => 'Пароль']) !!}
+            {!! Form::password('password', ['class' => 'form-control',  'placeholder' => __('messages.password_placeholder')]) !!}
         </div>
-        {!! Form::submit('Найти', ['class' => 'btn btn-primary']) !!}
+        {!! Form::submit(__('messages.find_button'), ['class' => 'btn btn-primary']) !!}
     {!! Form::close() !!}
           </div>
            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -42,7 +42,7 @@
 
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <a class="nav-link" href="#">О проекте</a>
+            <a class="nav-link" href="#">@lang('messages.menu_about')</a>
           </li>
         </ul>
       </div>
