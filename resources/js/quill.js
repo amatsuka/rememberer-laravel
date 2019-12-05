@@ -30,6 +30,8 @@ $(() => {
         $('#text').val(JSON.stringify(quill.getContents()));
     });
 
-    quill.setContents(JSON.parse($('#editor-container').text()), 'api');
+    if (!window._ .isEmpty($('#editor-container').text())) {
+        quill.setContents(JSON.parse($('#editor-container').text()), 'api');
+    }
 
 })

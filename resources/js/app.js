@@ -1,6 +1,14 @@
-require('./bootstrap');
 window.Popper = require('popper.js');
 window.$ = window.jQuery = require('jquery');
+require('./bootstrap');
 require('bootstrap');
-require('./../../node_modules/mdbootstrap/js/bootstrap.js');
-require('./../../node_modules/mdbootstrap/js/mdb.js');
+
+import tutorial from "./tutorial";
+$(() => {
+    $('#tutorialModal').modal('show');
+
+    $('.tut-set-step').on('click', function() {
+        let step = $(this).attr('data-tut-step');
+        tutorial(step);
+    });
+});

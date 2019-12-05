@@ -10,26 +10,173 @@
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:400,500,700,400italic|Material+Icons"/>
 </head>
 <body class="bg1">
+    <div id="shade"></div>
+<!-- Modal -->
+<div class="modal fade tutorialModal" id="tutorialModal" tabindex="-1" role="dialog" aria-labelledby="tutorialModal"
+  aria-hidden="true">
+  <div class="modal-dialog modal-frame modal-top modal-notify modal-info" role="document">
+    <div class="modal-content">
+        <!--Body-->
+        <div class="modal-body">
+          <div class="row d-flex justify-content-center align-items-center">
 
+            <p class="pt-3 pr-2">Предложение пройти туториал
+            </p>
+
+            <a type="button" class="btn btn-info waves-effect waves-light tut-set-step"  data-dismiss="modal" data-tut-step='0'>Показать
+              <i class="far fa-gem ml-1"></i>
+            </a>
+            <a type="button" class="btn btn-outline-info waves-effect skip-tut" data-dismiss="modal">Нет, все знаю</a>
+          </div>
+        </div>
+      </div>
+  </div>
+</div>
+<!--step 0 -->
+<div class="modal fade tut-modal" id="tut-modal-0" tabindex="-1" role="dialog" aria-labelledby="tut-modal-0"
+  aria-hidden="true">
+  <div class="modal-dialog modal-sm modal-side modal-top-right" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title w-100" id="myModalLabel">Modal title</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Про поиск записи
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary btn-sm tut-set-step" data-dismiss="modal" data-tut-step='1'>Понятно</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--step 1 -->
+<div class="modal fade tut-modal" id="tut-modal-1" tabindex="-1" role="dialog" aria-labelledby="tut-modal-1"
+  aria-hidden="true">
+  <div class="modal-dialog modal-sm modal-side modal-top-right" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title w-100" id="myModalLabel">Modal title</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Про код записи
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary btn-sm tut-set-step" data-dismiss="modal" data-tut-step='2'>Понятно</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--step 2 -->
+<div class="modal fade tut-modal" id="tut-modal-2" tabindex="-1" role="dialog" aria-labelledby="tut-modal-2"
+  aria-hidden="true">
+  <div class="modal-dialog modal-sm modal-side modal-top-right" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title w-100" id="myModalLabel">Modal title</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Про пароль записи
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary btn-sm tut-set-step" data-dismiss="modal" data-tut-step='3'>Понятно</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--step 3 -->
+<div class="modal fade tut-modal" id="tut-modal-3" tabindex="-1" role="dialog" aria-labelledby="tut-modal-3"
+  aria-hidden="true">
+  <div class="modal-dialog modal-sm modal-side modal-top-right" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title w-100" id="myModalLabel">Modal title</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Про пароль записи
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary btn-sm tut-set-step" data-dismiss="modal" data-tut-step='4'>Понятно</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--step 4 -->
+<div class="modal fade tut-modal" id="tut-modal-4" tabindex="-1" role="dialog" aria-labelledby="tut-modal-4"
+  aria-hidden="true">
+  <div class="modal-dialog modal-sm modal-side modal-top-right" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title w-100" id="myModalLabel">Modal title</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Про поле ввода текста
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary btn-sm tut-set-step" data-dismiss="modal" data-tut-step='5'>Понятно</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--step 5 -->
+<div class="modal fade tut-modal" id="tut-modal-5" tabindex="-1" role="dialog" aria-labelledby="tut-modal-5"
+  aria-hidden="true">
+  <div class="modal-dialog modal-sm modal-side modal-top-right" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title w-100" id="myModalLabel">Modal title</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Про пароль на запись
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary btn-sm tut-set-step" data-dismiss="modal" data-tut-step='6'>Понятно</button>
+      </div>
+    </div>
+  </div>
+</div>
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg static-top navbar-light">
     <div class="container">
       <a class="navbar-brand" href="/">@lang('messages.logo')</a>
-     <div class="ml-autod-sm-block d-lg-none d-md-block d-xl-block">
+     <div class="ml-autod-sm-block d-lg-none d-md-block d-xl-block tut-6-step">
           <a class="btn btn-success" href="/" role="button">@lang('messages.new_note')</a>
                   </div>
-                  <div class="ml-auto d-none d-md-none d-lg-block d-xl-none">
+                  <div class="ml-auto d-none d-md-none d-lg-block d-xl-none tut-7-step">
           <a class="btn btn-success" href="/" role="button">+</a>
                   </div>
-          <div class="ml-3 d-none d-lg-block">
-    {!! Form::open(['route' => 'note.view.post', 'class' => 'form-inline md-form my-0', 'method' => 'post']) !!}
-    <div class="form-group">
-        {!! Form::text('code', $code ?? null, ['class' => 'form-control', 'placeholder' => __('messages.code_phrase_placeholder')]) !!}
+          <div class="ml-3 d-none d-lg-block tut-0-step">
+    {!! Form::open(['route' => 'note.view.post', 'class' => 'form-inline md-form my-0', 'method' => 'post', 'autocomplete' => 'off' ]) !!}
+
+    <div class="form-group tut-1-step">
+        {!! Form::text('code', $code ?? null, ['class' => 'form-control', 'placeholder' => __('messages.code_phrase_placeholder'), 'autocomplete' => 'off']) !!}
     </div>
-        <div class="form-group mx-sm-3">
-            {!! Form::password('password', ['class' => 'form-control',  'placeholder' => __('messages.password_placeholder')]) !!}
+        <div class="form-group mx-sm-3 tut-2-step">
+            {!! Form::password('password', ['class' => 'form-control',  'placeholder' => __('messages.password_placeholder'), 'autocomplete' => 'off']) !!}
         </div>
-        {!! Form::submit(__('messages.find_button'), ['class' => 'btn btn-primary']) !!}
+        {!! Form::submit(__('messages.find_button'), ['class' => 'btn btn-primary tut-3-step']) !!}
     {!! Form::close() !!}
           </div>
            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">

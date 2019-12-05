@@ -15,7 +15,7 @@
     {!! Form::password('password', ['class' => 'form-control']) !!}
     <small id="passwordHelp" class="form-text text-muted">@lang('messages.password_label')</small>
   </div>
-{!! Form::submit(__('messages.button_save_as_new'), ['class' => 'btn btn-primary']) !!}
+{!! Form::submit(__('messages.button_save_as_new'), ['class' => 'btn btn-primary tut-6-step']) !!}
 
 {!! Form::close() !!}
     </div>

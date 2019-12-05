@@ -22,3 +22,30 @@ a.lang img{
 height: 40px;
     width: 34px;
 }
+
+.tutorialModal {
+    z-index: 10002;
+}
+
+.tut-0-step-active .tut-0-step,
+.tut-1-step-active .tut-1-step,
+.tut-2-step-active .tut-2-step,
+.tut-3-step-active .tut-3-step,
+.tut-4-step-active .tut-4-step,
+.tut-5-step-active .tut-5-step,
+.tut-6-step-active .tut-6-step ,
+.tut-7-step-active .tut-7-step,
+.tut-8-step-active .tut-8-step {
+    z-index: 10001;
+    background: #fff;
+    border-radius: 6px;
+}
+
+.tut-active #shade {
+    background: #000;
+    opacity: 0.5;
+    width: 100%;
+    height: 100%;
+    z-index: 10000;
+    position: absolute;
+}
