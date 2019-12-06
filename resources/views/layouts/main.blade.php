@@ -13,7 +13,7 @@
     <div id="shade"></div>
 <!-- Modal -->
 <div class="modal fade tutorialModal" id="tutorialModal" tabindex="-1" role="dialog" aria-labelledby="tutorialModal"
-  aria-hidden="true">
+  aria-hidden="true" data-backdrop="false">
   <div class="modal-dialog modal-frame modal-top modal-notify modal-info" role="document">
     <div class="modal-content">
         <!--Body-->
@@ -34,13 +34,13 @@
 </div>
 <!--step 0 -->
 <div class="modal fade tut-modal" id="tut-modal-0" tabindex="-1" role="dialog" aria-labelledby="tut-modal-0"
-  aria-hidden="true">
+  aria-hidden="true" data-backdrop="false">
   <div class="modal-dialog modal-sm modal-side modal-top-right" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <h4 class="modal-title w-100" id="myModalLabel">Modal title</h4>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
+          <span aria-hidden="true" data-backdrop="false">&times;</span>
         </button>
       </div>
       <div class="modal-body">
@@ -55,13 +55,13 @@
 
 <!--step 1 -->
 <div class="modal fade tut-modal" id="tut-modal-1" tabindex="-1" role="dialog" aria-labelledby="tut-modal-1"
-  aria-hidden="true">
+  aria-hidden="true" data-backdrop="false">
   <div class="modal-dialog modal-sm modal-side modal-top-right" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <h4 class="modal-title w-100" id="myModalLabel">Modal title</h4>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
+          <span aria-hidden="true" data-backdrop="false">&times;</span>
         </button>
       </div>
       <div class="modal-body">
@@ -76,13 +76,13 @@
 
 <!--step 2 -->
 <div class="modal fade tut-modal" id="tut-modal-2" tabindex="-1" role="dialog" aria-labelledby="tut-modal-2"
-  aria-hidden="true">
+  aria-hidden="true" data-backdrop="false">
   <div class="modal-dialog modal-sm modal-side modal-top-right" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <h4 class="modal-title w-100" id="myModalLabel">Modal title</h4>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
+          <span aria-hidden="true" data-backdrop="false">&times;</span>
         </button>
       </div>
       <div class="modal-body">
@@ -97,13 +97,13 @@
 
 <!--step 3 -->
 <div class="modal fade tut-modal" id="tut-modal-3" tabindex="-1" role="dialog" aria-labelledby="tut-modal-3"
-  aria-hidden="true">
+  aria-hidden="true" data-backdrop="false">
   <div class="modal-dialog modal-sm modal-side modal-top-right" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <h4 class="modal-title w-100" id="myModalLabel">Modal title</h4>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
+          <span aria-hidden="true" data-backdrop="false">&times;</span>
         </button>
       </div>
       <div class="modal-body">
@@ -118,13 +118,13 @@
 
 <!--step 4 -->
 <div class="modal fade tut-modal" id="tut-modal-4" tabindex="-1" role="dialog" aria-labelledby="tut-modal-4"
-  aria-hidden="true">
+  aria-hidden="true" data-backdrop="false">
   <div class="modal-dialog modal-sm modal-side modal-top-right" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <h4 class="modal-title w-100" id="myModalLabel">Modal title</h4>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
+          <span aria-hidden="true" data-backdrop="false">&times;</span>
         </button>
       </div>
       <div class="modal-body">
@@ -139,20 +139,20 @@
 
 <!--step 5 -->
 <div class="modal fade tut-modal" id="tut-modal-5" tabindex="-1" role="dialog" aria-labelledby="tut-modal-5"
-  aria-hidden="true">
+  aria-hidden="true" data-backdrop="false">
   <div class="modal-dialog modal-sm modal-side modal-top-right" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <h4 class="modal-title w-100" id="myModalLabel">Modal title</h4>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
+          <span aria-hidden="true" data-backdrop="false">&times;</span>
         </button>
       </div>
       <div class="modal-body">
         Про пароль на запись
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary btn-sm tut-set-step" data-dismiss="modal" data-tut-step='6'>Понятно</button>
+        <button type="button" class="btn btn-secondary btn-sm tut-set-step" data-dismiss="modal" data-tut-step='saveNote'>Понятно</button>
       </div>
     </div>
   </div>
