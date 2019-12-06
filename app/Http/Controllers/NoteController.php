@@ -35,11 +35,15 @@ class NoteController extends Controller
 
         $url = URL::to('/view/' . $note->t_code);
 
+        if ($request->has('is_tutorial') && $request->get('is_tutorial') == 1) {
+            Session::put('tutorial_succeed', true);
+        }
+
         return redirect(route('index'))
         ->with('message', [
             'type' => 'success',
             'text' => __('messages.phrase_to_get') . ": <b>{$note->code}</b><br/> " .  __('messages.link') . ": <a href='{$url}'>{$url}</a>"
-        ])->with('step2_tutorial', !Session::has('tutorial_succeed'));
+        ])->with('show_tutorial2', $request->has('is_tutorial') && $request->get('is_tutorial') == 1);
      }
 
     public function view(Request $request)
@@ -84,6 +88,11 @@ class NoteController extends Controller
 
     public function index(Request $request)
     {
-        return view('notes.index', ['message' => Session::get('message'), 'code' => Session::get('code'), 'need_tutorial' => !Session::has('tutorial_succeed')]);
+        return view('notes.index', [
+            'message' => Session::get('message'),
+             'code' => Session::get('code'),
+             'tutorial1' => !Session::has('tutorial_succeed'),
+             'tutorial2' => Session::get('show_tutorial2')
+             ]);
     }
 }

@@ -12,8 +12,8 @@
 <body class="bg1">
     <div id="shade"></div>
 <!-- Modal -->
-@isset($need_tutorial)
-@if ($need_tutorial)
+@isset($tutorial1)
+@if ($tutorial1)
 <div class="modal fade tutorialModal" id="tutorialModal" tabindex="-1" role="dialog" aria-labelledby="tutorialModal"
   aria-hidden="true" data-backdrop="false">
   <div class="modal-dialog modal-frame modal-top modal-notify modal-info" role="document">
@@ -98,7 +98,7 @@
 </div>
 
 <!--step 4 -->
-<div class="modal fade tut-modal secontStepTutorialModal" data-tut-step="4" id="tut-modal-4" tabindex="-1" role="dialog" aria-labelledby="tut-modal-4"
+<div class="modal fade tut-modal" id="tut-modal-4" tabindex="-1" role="dialog" aria-labelledby="tut-modal-4"
   aria-hidden="true" data-backdrop="false">
   <div class="modal-dialog modal-sm modal-side modal-top-right" role="document">
     <div class="modal-content">
@@ -141,10 +141,10 @@
 @endif
 @endisset
 
-@isset($step2_tutorial)
-@if ($step2_tutorial)
+@isset($tutorial2)
+@if ($tutorial2)
 <!--step 6 -->
-<div class="modal fade tut-modal" id="tut-modal-6" tabindex="-1" role="dialog" aria-labelledby="tut-modal-6"
+<div class="modal fade tut-modal secontStepTutorialModal" data-tut-step="6" id="tut-modal-6" tabindex="-1" role="dialog" aria-labelledby="tut-modal-6"
   aria-hidden="true" data-backdrop="false">
   <div class="modal-dialog modal-sm modal-side modal-top-right" role="document">
     <div class="modal-content">
@@ -158,31 +158,12 @@
         Про код и ссылку записи
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary btn-sm tut-set-step" data-dismiss="modal" data-tut-step='7'>Понятно</button>
-      </div>
-    </div>
-  </div>
-</div>
-<!--step 7 -->
-<div class="modal fade tut-modal" id="tut-modal-7" tabindex="-1" role="dialog" aria-labelledby="tut-modal-7"
-  aria-hidden="true" data-backdrop="false">
-  <div class="modal-dialog modal-sm modal-side modal-top-right" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h4 class="modal-title w-100" id="myModalLabel">Modal title</h4>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true" data-backdrop="false">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        Про пересохранение записи
-      </div>
-      <div class="modal-footer">
         <button type="button" class="btn btn-secondary btn-sm tut-set-step" data-dismiss="modal" data-tut-step='8'>Понятно</button>
       </div>
     </div>
   </div>
 </div>
+
 <!--step 8 -->
 <div class="modal fade tut-modal" id="tut-modal-8" tabindex="-1" role="dialog" aria-labelledby="tut-modal-8"
   aria-hidden="true" data-backdrop="false">
@@ -210,10 +191,10 @@
   <nav class="navbar navbar-expand-lg static-top navbar-light">
     <div class="container">
       <a class="navbar-brand" href="/">@lang('messages.logo')</a>
-     <div class="ml-autod-sm-block d-lg-none d-md-block d-xl-block tut-6-step">
+     <div class="ml-autod-sm-block d-lg-none d-md-block d-xl-block tut-8-step">
           <a class="btn btn-success" href="/" role="button">@lang('messages.new_note')</a>
                   </div>
-                  <div class="ml-auto d-none d-md-none d-lg-block d-xl-none tut-7-step">
+                  <div class="ml-auto d-none d-md-none d-lg-block d-xl-none tut-8-step">
           <a class="btn btn-success" href="/" role="button">+</a>
                   </div>
           <div class="ml-3 d-none d-lg-block tut-0-step">
@@ -253,7 +234,7 @@
 
         @if ($message != null)
             @if ($message['type'] == 'success')
-                <div class="alert alert-success" role="alert">
+                <div class="alert alert-success tut-6-step" role="alert">
                     {!! $message['text'] !!}
                 </div>
             @endif
