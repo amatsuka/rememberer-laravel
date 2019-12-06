@@ -39,7 +39,7 @@ class NoteController extends Controller
         ->with('message', [
             'type' => 'success',
             'text' => __('messages.phrase_to_get') . ": <b>{$note->code}</b><br/> " .  __('messages.link') . ": <a href='{$url}'>{$url}</a>"
-            ]);
+        ])->with('step2_tutorial', !Session::has('tutorial_succeed'));
      }
 
     public function view(Request $request)
@@ -84,6 +84,6 @@ class NoteController extends Controller
 
     public function index(Request $request)
     {
-        return view('notes.index', ['message' => Session::get('message'), 'code' => Session::get('code')]);
+        return view('notes.index', ['message' => Session::get('message'), 'code' => Session::get('code'), 'need_tutorial' => !Session::has('tutorial_succeed')]);
     }
 }

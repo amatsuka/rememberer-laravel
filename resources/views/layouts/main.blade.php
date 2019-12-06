@@ -12,6 +12,8 @@
 <body class="bg1">
     <div id="shade"></div>
 <!-- Modal -->
+@isset($need_tutorial)
+@if ($need_tutorial)
 <div class="modal fade tutorialModal" id="tutorialModal" tabindex="-1" role="dialog" aria-labelledby="tutorialModal"
   aria-hidden="true" data-backdrop="false">
   <div class="modal-dialog modal-frame modal-top modal-notify modal-info" role="document">
@@ -96,7 +98,7 @@
 </div>
 
 <!--step 4 -->
-<div class="modal fade tut-modal" id="tut-modal-4" tabindex="-1" role="dialog" aria-labelledby="tut-modal-4"
+<div class="modal fade tut-modal secontStepTutorialModal" data-tut-step="4" id="tut-modal-4" tabindex="-1" role="dialog" aria-labelledby="tut-modal-4"
   aria-hidden="true" data-backdrop="false">
   <div class="modal-dialog modal-sm modal-side modal-top-right" role="document">
     <div class="modal-content">
@@ -136,6 +138,11 @@
     </div>
   </div>
 </div>
+@endif
+@endisset
+
+@isset($step2_tutorial)
+@if ($step2_tutorial)
 <!--step 6 -->
 <div class="modal fade tut-modal" id="tut-modal-6" tabindex="-1" role="dialog" aria-labelledby="tut-modal-6"
   aria-hidden="true" data-backdrop="false">
@@ -196,7 +203,10 @@
     </div>
   </div>
 </div>
-  <!-- Navigation -->
+@endif
+@endisset
+
+<!-- Navigation -->
   <nav class="navbar navbar-expand-lg static-top navbar-light">
     <div class="container">
       <a class="navbar-brand" href="/">@lang('messages.logo')</a>
