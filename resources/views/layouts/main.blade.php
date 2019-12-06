@@ -68,27 +68,6 @@
         Про код записи
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary btn-sm tut-set-step" data-dismiss="modal" data-tut-step='2'>Понятно</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!--step 2 -->
-<div class="modal fade tut-modal" id="tut-modal-2" tabindex="-1" role="dialog" aria-labelledby="tut-modal-2"
-  aria-hidden="true" data-backdrop="false">
-  <div class="modal-dialog modal-sm modal-side modal-top-right" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h4 class="modal-title w-100" id="myModalLabel">Modal title</h4>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true" data-backdrop="false">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        Про пароль записи
-      </div>
-      <div class="modal-footer">
         <button type="button" class="btn btn-secondary btn-sm tut-set-step" data-dismiss="modal" data-tut-step='3'>Понятно</button>
       </div>
     </div>
@@ -157,6 +136,66 @@
     </div>
   </div>
 </div>
+<!--step 6 -->
+<div class="modal fade tut-modal" id="tut-modal-6" tabindex="-1" role="dialog" aria-labelledby="tut-modal-6"
+  aria-hidden="true" data-backdrop="false">
+  <div class="modal-dialog modal-sm modal-side modal-top-right" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title w-100" id="myModalLabel">Modal title</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true" data-backdrop="false">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Про код и ссылку записи
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary btn-sm tut-set-step" data-dismiss="modal" data-tut-step='7'>Понятно</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!--step 7 -->
+<div class="modal fade tut-modal" id="tut-modal-7" tabindex="-1" role="dialog" aria-labelledby="tut-modal-7"
+  aria-hidden="true" data-backdrop="false">
+  <div class="modal-dialog modal-sm modal-side modal-top-right" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title w-100" id="myModalLabel">Modal title</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true" data-backdrop="false">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Про пересохранение записи
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary btn-sm tut-set-step" data-dismiss="modal" data-tut-step='8'>Понятно</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!--step 8 -->
+<div class="modal fade tut-modal" id="tut-modal-8" tabindex="-1" role="dialog" aria-labelledby="tut-modal-8"
+  aria-hidden="true" data-backdrop="false">
+  <div class="modal-dialog modal-sm modal-side modal-top-right" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title w-100" id="myModalLabel">Modal title</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true" data-backdrop="false">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Про новую заметку
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary btn-sm tut-set-step" data-dismiss="modal">Понятно</button>
+      </div>
+    </div>
+  </div>
+</div>
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg static-top navbar-light">
     <div class="container">
@@ -173,9 +212,6 @@
     <div class="form-group tut-1-step">
         {!! Form::text('code', $code ?? null, ['class' => 'form-control', 'placeholder' => __('messages.code_phrase_placeholder'), 'autocomplete' => 'off']) !!}
     </div>
-        <div class="form-group mx-sm-3 tut-2-step">
-            {!! Form::password('password', ['class' => 'form-control',  'placeholder' => __('messages.password_placeholder'), 'autocomplete' => 'off']) !!}
-        </div>
         {!! Form::submit(__('messages.find_button'), ['class' => 'btn btn-primary tut-3-step']) !!}
     {!! Form::close() !!}
           </div>
@@ -209,6 +245,18 @@
             @if ($message['type'] == 'success')
                 <div class="alert alert-success" role="alert">
                     {!! $message['text'] !!}
+                </div>
+            @endif
+            @if ($message['type'] == 'need_pass')
+                <div class="alert alert-warning" role="alert">
+                    {!! $message['text'] !!}
+                     {!! Form::open(['route' => 'note.view.post', 'class' => 'md-form my-0 form-inline', 'method' => 'post']) !!}
+    <div class="form-group tut-1-step">
+               {!! Form::hidden('code', $code ?? null, ['class' => 'form-control', 'id' => 'text']) !!}
+        {!! Form::password('password', ['class' => 'form-control', 'placeholder' => __('messages.password_placeholder')]) !!}
+    </div>
+        {!! Form::submit(__("messages.find_button"), ['class' => 'btn btn-primary ml-3 tut-3-step']) !!}
+    {!! Form::close() !!}
                 </div>
             @endif
             @if ($message['type'] == 'error')

@@ -19,14 +19,14 @@ $(() => {
         ['clean']                                         // remove formatting button
     ];
 
-    var quill = new Quill('#editor-container', {
+    window.quill = new Quill('#editor-container', {
         modules: {
             syntax: true,
             toolbar: toolbarOptions
         },
         theme: 'snow'
     });
-    $('#form').on('submit', () => {
+    $('#save-note-form').on('submit', () => {
         $('#text').val(JSON.stringify(quill.getContents()));
     });
 

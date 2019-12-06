@@ -8,9 +8,6 @@
     <div class="form-group tut-1-step">
         {!! Form::text('code', $code ?? null, ['class' => 'form-control', 'placeholder' => __('messages.code_phrase_placeholder')]) !!}
     </div>
-        <div class="form-group tut-2-step">
-            {!! Form::password('password', ['class' => 'form-control',  'placeholder' => __('messages.password_placeholder')]) !!}
-        </div>
         {!! Form::submit(__("messages.find_button"), ['class' => 'btn btn-primary ml-3 tut-3-step']) !!}
     {!! Form::close() !!}
       </div>

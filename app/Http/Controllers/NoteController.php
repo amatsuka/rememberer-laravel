@@ -56,7 +56,7 @@ class NoteController extends Controller
 
         if ($note == null) {
             return redirect(route('index'))->with('message', [
-                'type' => 'warning',
+                'type' => 'need_pass',
                 'text' => __('messages.note_not_found')
             ])->with('code', $request->get('code'));
         }
@@ -73,10 +73,10 @@ class NoteController extends Controller
         }
 
         if ($note->password_hash == null) {
-            return view('notes.view')->with('code', $note->code)->with('note', $note);
+            return view('notes.view')->with('code', null)->with('note', $note);
         } else {
             return redirect('/')->with('message', [
-                'type' => 'warning',
+                'type' => 'need_pass',
                 'text' => __('messages.note_not_found')
             ])->with('code', $note->code);
         }
