@@ -25,7 +25,9 @@
             <p class="pt-3 pr-2">Предложение пройти туториал
             </p>
 
-            <a type="button" class="btn btn-info waves-effect waves-light tut-set-step"  data-dismiss="modal" data-tut-step='0'>Показать
+          </div>
+          <div class="row d-flex justify-content-center align-items-center">
+              <a type="button" class="btn btn-info waves-effect waves-light tut-set-step"  data-dismiss="modal" data-tut-step='0'>Показать
               <i class="far fa-gem ml-1"></i>
             </a>
             <a type="button" class="btn btn-outline-info waves-effect skip-tut" data-dismiss="modal">Нет, все знаю</a>
@@ -40,7 +42,7 @@
   <div class="modal-dialog modal-sm modal-side modal-top-right" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h4 class="modal-title w-100" id="myModalLabel">Modal title</h4>
+        <h4 class="modal-title w-100" >Modal title</h4>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true" data-backdrop="false">&times;</span>
         </button>
@@ -61,7 +63,7 @@
   <div class="modal-dialog modal-sm modal-side modal-top-right" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h4 class="modal-title w-100" id="myModalLabel">Modal title</h4>
+        <h4 class="modal-title w-100" >Modal title</h4>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true" data-backdrop="false">&times;</span>
         </button>
@@ -82,7 +84,7 @@
   <div class="modal-dialog modal-sm modal-side modal-top-right" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h4 class="modal-title w-100" id="myModalLabel">Modal title</h4>
+        <h4 class="modal-title w-100" >Modal title</h4>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true" data-backdrop="false">&times;</span>
         </button>
@@ -103,7 +105,7 @@
   <div class="modal-dialog modal-sm modal-side modal-top-right" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h4 class="modal-title w-100" id="myModalLabel">Modal title</h4>
+        <h4 class="modal-title w-100" >Modal title</h4>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true" data-backdrop="false">&times;</span>
         </button>
@@ -119,12 +121,12 @@
 </div>
 
 <!--step 5 -->
-<div class="modal fade tut-modal" id="tut-modal-5" tabindex="-1" role="dialog" aria-labelledby="tut-modal-5"
+<div class="modal fade tut-modal top-modal" id="tut-modal-5" tabindex="-1" role="dialog" aria-labelledby="tut-modal-5"
   aria-hidden="true" data-backdrop="false">
   <div class="modal-dialog modal-sm modal-side modal-top-right" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h4 class="modal-title w-100" id="myModalLabel">Modal title</h4>
+        <h4 class="modal-title w-100" >Modal title</h4>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true" data-backdrop="false">&times;</span>
         </button>
@@ -149,7 +151,7 @@
   <div class="modal-dialog modal-sm modal-side modal-top-right" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h4 class="modal-title w-100" id="myModalLabel">Modal title</h4>
+        <h4 class="modal-title w-100" >Modal title</h4>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true" data-backdrop="false">&times;</span>
         </button>
@@ -170,7 +172,7 @@
   <div class="modal-dialog modal-sm modal-side modal-top-right" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h4 class="modal-title w-100" id="myModalLabel">Modal title</h4>
+        <h4 class="modal-title w-100" >Modal title</h4>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true" data-backdrop="false">&times;</span>
         </button>
@@ -191,13 +193,13 @@
   <nav class="navbar navbar-expand-lg static-top navbar-light">
     <div class="container">
       <a class="navbar-brand" href="/">@lang('messages.logo')</a>
-     <div class="ml-autod-sm-block d-lg-none d-md-block d-xl-block tut-8-step">
-          <a class="btn btn-success" href="/" role="button">@lang('messages.new_note')</a>
+     <div>
+          <a class="btn btn-success tut-8-step" href="/" role="button">@lang('messages.new_note')</a>
                   </div>
-                  <div class="ml-auto d-none d-md-none d-lg-block d-xl-none tut-8-step">
-          <a class="btn btn-success" href="/" role="button">+</a>
-                  </div>
-          <div class="ml-3 d-none d-lg-block tut-0-step">
+                   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+          <div class="ml-3 tut-0-step">
     {!! Form::open(['route' => 'note.view.post', 'class' => 'form-inline md-form my-0', 'method' => 'post', 'autocomplete' => 'off' ]) !!}
 
     <div class="form-group tut-1-step">
@@ -206,9 +208,6 @@
         {!! Form::submit(__('messages.find_button'), ['class' => 'btn btn-primary tut-3-step']) !!}
     {!! Form::close() !!}
           </div>
-           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">

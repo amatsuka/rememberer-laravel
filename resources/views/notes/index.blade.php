@@ -1,18 +1,6 @@
 @extends('layouts.main')
 
 @section('content')
-<div class="d-lg-none bgw row py-3 mb-3">
-      <div class="col">
-<div class="tut-0-step">
-    {!! Form::open(['route' => 'note.view.post', 'class' => 'md-form my-0', 'method' => 'post']) !!}
-    <div class="form-group tut-1-step">
-        {!! Form::text('code', $code ?? null, ['class' => 'form-control', 'placeholder' => __('messages.code_phrase_placeholder')]) !!}
-    </div>
-        {!! Form::submit(__("messages.find_button"), ['class' => 'btn btn-primary ml-3 tut-3-step']) !!}
-    {!! Form::close() !!}
-      </div>
-          </div>
-      </div>
 <div class="row bgw py-3">
     <div class="col">
         {!! Form::open(['route' => 'note.store', 'method' => 'post', 'id' => 'save-note-form', 'class' => 'md-form my-0']) !!}
