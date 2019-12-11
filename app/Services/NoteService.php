@@ -59,9 +59,15 @@ class NoteService {
         })->first();
     }
 
-    public function findByCodeAndPassword(string $code, string $password) : ?Note
+    public function findByCodeAndPassword(string $code, ?string $password) : ?Note
     {
-        $note = Note::whereCode($code)->wherePasswordHash(md5($password))->first();
+        if ($password == null) {
+            return null;
+        }
+
+        $note = Note::where(function ($query) use ($code) {
+            $query->where('code', $code)->orWhere('t_code', $code);
+        })->wherePasswordHash(md5($password))->first();
 
         if ($note == null) {
             return null;

@@ -65,24 +65,41 @@ class NoteController extends Controller
             ])->with('code', $request->get('code'));
         }
 
-        return view('notes.view')->with('note', $note)->with('code', $request->get('code'));
+        $url = URL::to('/view/' . $note->t_code);
+
+        return view('notes.view')->with('note', $note)->with('code', $request->get('code'))->with('message', [
+            'type' => 'success',
+            'text' => __('messages.phrase_to_get') . ": <b>{$note->code}</b><br/> " .  __('messages.link') . ": <a href='{$url}'>{$url}</a>"
+        ]);
     }
 
-    public function viewDirectly(string $code)
+    public function viewDirectly(string $code, Request $request)
     {
-        $note = $this->noteService->findByCodeIgnorePassword($code);
-
-        if ($note == null) {
-            throw new NotFoundHttpException();
+        if ($request->has('password')) {
+            $note = $this->noteService->findByCodeAndPassword($code, $request->get('password'));
+        } else {
+            $note = $this->noteService->findByCodeIgnorePassword($code);
         }
 
-        if ($note->password_hash == null) {
-            return view('notes.view')->with('code', null)->with('note', $note);
-        } else {
-            return redirect('/')->with('message', [
-                'type' => 'need_pass',
+        if ($note == null) {
+            return view('notes.view')->with('message', [
+                'type' => 'need_pass_directly',
                 'text' => __('messages.note_not_found')
-            ])->with('code', $note->code);
+            ]);
+        }
+
+        if ($note->password_hash == null || ($note->password_hash != null && $request->has('password'))) {
+            $url = URL::to('/view/' . $note->t_code);
+
+            return view('notes.view')->with('code', null)->with('note', $note)->with('message', [
+                'type' => 'success',
+                'text' => __('messages.phrase_to_get') . ": <b>{$note->code}</b><br/> " .  __('messages.link') . ": <a href='{$url}'>{$url}</a>"
+            ]);
+        } else {
+            return view('notes.view')->with('message', [
+                'type' => 'need_pass_directly',
+                'text' => __('messages.note_not_found')
+            ]);
         }
     }
 

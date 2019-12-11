@@ -12,6 +12,7 @@
 <body class="bg1">
     <div id="shade"></div>
 <!-- Modal -->
+@if (app()->getLocale() == 'ru')
 @isset($tutorial1)
 @if ($tutorial1)
 <div class="modal fade tutorialModal" id="tutorialModal" tabindex="-1" role="dialog" aria-labelledby="tutorialModal"
@@ -21,16 +22,20 @@
         <!--Body-->
         <div class="modal-body">
           <div class="row d-flex justify-content-center align-items-center">
-
-            <p class="pt-3 pr-2">Предложение пройти туториал
+              <div class="col "></div>
+            <div class="col-sm-12 col-md-8 col-lg-8">
+            <p class="pt-3 pr-2">Привет;) Это сервис для сохранения заметок.  При сохранении Вы будете получать фразу которую легко запомнить,
+                 не нужно никуда сохранять и можно кому-то передать просто сказав в слух. Круто, правда? Хотите узнать как?)
             </p>
+</div>
+              <div class="col"></div>
 
           </div>
           <div class="row d-flex justify-content-center align-items-center">
               <a type="button" class="btn btn-info waves-effect waves-light tut-set-step"  data-dismiss="modal" data-tut-step='0'>Показать
               <i class="far fa-gem ml-1"></i>
             </a>
-            <a type="button" class="btn btn-outline-info waves-effect skip-tut" data-dismiss="modal">Нет, все знаю</a>
+            <a type="button" class="btn btn-outline-info waves-effect skip-tut" href="/skip-tutorial">Нет, я все знаю</a>
           </div>
         </div>
       </div>
@@ -42,13 +47,12 @@
   <div class="modal-dialog modal-sm modal-side modal-top-right" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h4 class="modal-title w-100" >Modal title</h4>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <h4 class="modal-title w-100" >Поиск заметки</h4>
           <span aria-hidden="true" data-backdrop="false">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-        Про поиск записи
+        Тут происходит поиск существующей заметки
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary btn-sm tut-set-step" data-dismiss="modal" data-tut-step='1'>Понятно</button>
@@ -63,13 +67,12 @@
   <div class="modal-dialog modal-sm modal-side modal-top-right" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h4 class="modal-title w-100" >Modal title</h4>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <h4 class="modal-title w-100" >Поиск заметки</h4>
           <span aria-hidden="true" data-backdrop="false">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-        Про код записи
+        В это поле нужно ввести кодовую фразу записи
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary btn-sm tut-set-step" data-dismiss="modal" data-tut-step='3'>Понятно</button>
@@ -84,13 +87,12 @@
   <div class="modal-dialog modal-sm modal-side modal-top-right" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h4 class="modal-title w-100" >Modal title</h4>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <h4 class="modal-title w-100" >Поиск заметки</h4>
           <span aria-hidden="true" data-backdrop="false">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-        Про пароль записи
+        И нажать найти
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary btn-sm tut-set-step" data-dismiss="modal" data-tut-step='4'>Понятно</button>
@@ -105,13 +107,12 @@
   <div class="modal-dialog modal-sm modal-side modal-top-right" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h4 class="modal-title w-100" >Modal title</h4>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <h4 class="modal-title w-100" >Создание заметки</h4>
           <span aria-hidden="true" data-backdrop="false">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-        Про поле ввода текста
+        Сюда можно ввести текст своей заметки
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary btn-sm tut-set-step" data-dismiss="modal" data-tut-step='5'>Понятно</button>
@@ -126,13 +127,12 @@
   <div class="modal-dialog modal-sm modal-side modal-top-right" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h4 class="modal-title w-100" >Modal title</h4>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <h4 class="modal-title w-100" >Создание заметки</h4>
           <span aria-hidden="true" data-backdrop="false">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-        Про пароль на запись
+        Если хотите зашифровать запись то сюда нужно ввести пароль
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary btn-sm tut-set-step" data-dismiss="modal" data-tut-step='saveNote'>Понятно</button>
@@ -151,13 +151,13 @@
   <div class="modal-dialog modal-sm modal-side modal-top-right" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h4 class="modal-title w-100" >Modal title</h4>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <h4 class="modal-title w-100" >Чтение заметки</h4>
           <span aria-hidden="true" data-backdrop="false">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-        Про код и ссылку записи
+        После сохранения Вы получите кодовую фразу и ссылку для просмотра заметки. Фразу можно запомнить, передать кому-то
+        и по ней найти заметку.
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary btn-sm tut-set-step" data-dismiss="modal" data-tut-step='8'>Понятно</button>
@@ -172,13 +172,12 @@
   <div class="modal-dialog modal-sm modal-side modal-top-right" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h4 class="modal-title w-100" >Modal title</h4>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <h4 class="modal-title w-100" >Создание новой заметки</h4>
           <span aria-hidden="true" data-backdrop="false">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-        Про новую заметку
+        Нажмите сюда что бы создать свою заметку.
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary btn-sm tut-set-step" data-dismiss="modal">Понятно</button>
@@ -188,6 +187,7 @@
 </div>
 @endif
 @endisset
+@endif
 
 <!-- Navigation -->
   <nav class="navbar navbar-expand-lg static-top navbar-light">
@@ -241,6 +241,18 @@
                 <div class="alert alert-warning" role="alert">
                     {!! $message['text'] !!}
                      {!! Form::open(['route' => 'note.view.post', 'class' => 'md-form my-0 form-inline', 'method' => 'post']) !!}
+    <div class="form-group tut-1-step">
+               {!! Form::hidden('code', $code ?? null, ['class' => 'form-control', 'id' => 'text']) !!}
+        {!! Form::password('password', ['class' => 'form-control', 'placeholder' => __('messages.password_placeholder')]) !!}
+    </div>
+        {!! Form::submit(__("messages.find_button"), ['class' => 'btn btn-primary ml-3 tut-3-step']) !!}
+    {!! Form::close() !!}
+                </div>
+            @endif
+            @if ($message['type'] == 'need_pass_directly')
+                <div class="alert alert-warning" role="alert">
+                    {!! $message['text'] !!}
+                     {!! Form::open(['class' => 'md-form my-0 form-inline', 'method' => 'post']) !!}
     <div class="form-group tut-1-step">
                {!! Form::hidden('code', $code ?? null, ['class' => 'form-control', 'id' => 'text']) !!}
         {!! Form::password('password', ['class' => 'form-control', 'placeholder' => __('messages.password_placeholder')]) !!}
