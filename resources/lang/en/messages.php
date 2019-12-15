@@ -14,4 +14,5 @@ return [
     'note_not_found' => 'No record found. Wrong code entered or password protected',
     'phrase_to_get' => 'Phrase to get',
     'link' => 'Link',
+    'text_is_empty' => 'Note text cannot be empty'
 ];

@@ -5,13 +5,14 @@
     <div class="col">
         {!! Form::open(['route' => 'note.store', 'method' => 'post', 'id' => 'save-note-form', 'class' => 'md-form my-0']) !!}
         <div class="form-group">
-        {!! Form::submit(__('messages.save_button'), ['class' => 'btn btn-primary ml-3']) !!}
+        {!! Form::submit(__('messages.save_button'), ['class' => 'btn btn-primary ml-3', 'autocomplete' => "off"]) !!}
   </div>
                 <div id="editor-container" class=" tut-4-step"></div>
 
   <div class="form-group">
        {!! Form::hidden('text', null, ['class' => 'form-control', 'id' => 'text']) !!}
        {!! Form::hidden('is_tutorial', null, ['class' => 'form-control', 'id' => 'is-tutorial']) !!}
+       {!! Form::hidden('check_code', null, ['class' => 'form-control check-code', 'id' => 'check_code']) !!}
     <small id="textHelp" class="form-text text-muted ml-3">@lang('messages.text_label')</small>
   </div>
   <div class="form-group tut-5-step">

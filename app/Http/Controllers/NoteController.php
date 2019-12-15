@@ -7,6 +7,7 @@ use App\Services\NoteService;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Facades\Session;
 use App\Exceptions\NoteNotStoredException;
+use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class NoteController extends Controller
@@ -24,10 +25,14 @@ class NoteController extends Controller
 
     public function store(Request $request)
     {
+        if ($request->has('check_code') && strlen($request->get('check_code')) != 0) {
+            throw new AccessDeniedHttpException();
+        }
+
         try {
             $note = $this->noteService->store($request->all());
         } catch(NoteNotStoredException $ex) {
-            return view('/')->with('message', [
+            return redirect('/')->with('message', [
                 'type' => 'error',
                 'text' => $ex->getMessage()
             ]);

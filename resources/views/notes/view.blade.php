@@ -21,6 +21,14 @@
     </div>
 </div>
 @else
+<style>
+    footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 54px;
+}
+</style>
 @endif
     </div>
 </div>

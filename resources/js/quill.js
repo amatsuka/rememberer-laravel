@@ -6,7 +6,7 @@ $(() => {
     window.quill = new Quill('#editor-container', {
         modules: {
             syntax: true,
-            toolbar: false
+            toolbar: toolbarOptions
         },
         theme: 'snow'
     });

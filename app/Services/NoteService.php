@@ -23,6 +23,16 @@ class NoteService {
      * @return Note
      */
     public function store(array $attributes) : Note {
+        $json = json_decode($attributes['text'], true);
+
+        if (count($json['ops']) == 1) {
+            $text = $json['ops'][0]['insert'];
+
+            if (strlen($text) == 1) {
+               throw new NoteNotStoredException(__('messages.text_is_empty'));
+            }
+        }
+
         $note = new Note($attributes);
 
         if ($attributes['password']) {

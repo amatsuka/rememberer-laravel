@@ -24,7 +24,7 @@
           <div class="row d-flex justify-content-center align-items-center">
               <div class="col "></div>
             <div class="col-sm-12 col-md-8 col-lg-8">
-            <p class="pt-3 pr-2">Привет;) Это сервис для сохранения заметок.  При сохранении Вы будете получать фразу которую легко запомнить,
+            <p class="pt-3 pr-2">Привет;) Это сервис для сохранения заметок с поддержкой подсветки синтаксиса.  При сохранении кроме ссылки Вы будете получать фразу которую легко запомнить,
                  не нужно никуда сохранять и можно кому-то передать просто сказав в слух. Круто, правда? Хотите узнать как?)
             </p>
 </div>
@@ -262,7 +262,7 @@
                 </div>
             @endif
             @if ($message['type'] == 'error')
-                <div class="alert alert-error" role="alert">
+                <div class="alert alert-danger" role="alert">
                     {!! $message['text'] !!}
                 </div>
             @endif
