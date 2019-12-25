@@ -2,19 +2,33 @@ window.Popper = require('popper.js');
 window.$ = window.jQuery = require('jquery');
 require('./bootstrap');
 require('bootstrap');
+require('./tutorial');
 
-import tutorial from "./tutorial";
-$(() => {
-    $('#tutorialModal').modal('show');
+import * as monaco from 'monaco-editor';
 
-    let secontTutorialStep = $('.secontStepTutorialModal').eq(0).attr('data-tut-step');
-
-    if (secontTutorialStep) {
-        tutorial(secontTutorialStep);
+self.MonacoEnvironment = {
+    getWorkerUrl: function (moduleId, label) {
+        if (label === 'json') {
+            return './js/monaco/json.worker.js';
+        }
+        if (label === 'css') {
+            return './js/monaco/css.worker.js';
+        }
+        if (label === 'html') {
+            return './js/monaco/html.worker.js';
+        }
+        if (label === 'typescript' || label === 'javascript') {
+            return './js/monaco/ts.worker.js';
+        }
+        return './js/monaco/editor.worker.js';
     }
+}
 
-    $('.tut-set-step').on('click', function() {
-        let step = $(this).attr('data-tut-step');
-        tutorial(step);
-    });
+let editor = monaco.editor.create(document.getElementById('editor-container'), {
+    value: [
+        'function x() {',
+        '\tconsole.log("Hello world!");',
+        '}'
+    ].join('\n'),
+    language: 'typescript'
 });

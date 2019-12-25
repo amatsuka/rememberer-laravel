@@ -12,5 +12,9 @@ const mix = require('laravel-mix');
  */
 
 mix.js('resources/js/app.js', 'public/js')
-.js('resources/js/quill.js', 'public/js')
+    .js('node_modules/monaco-editor/esm/vs/editor/editor.worker.js', 'public/js/monaco')
+    .js('node_modules/monaco-editor/esm/vs/language/json/json.worker.js', 'public/js/monaco')
+    .js('node_modules/monaco-editor/esm/vs/language/css/css.worker.js', 'public/js/monaco')
+    .js('node_modules/monaco-editor/esm/vs/language/html/html.worker.js', 'public/js/monaco')
+    .js('node_modules/monaco-editor/esm/vs/language/typescript/ts.worker.js', 'public/js/monaco')
     .sass('resources/sass/app.scss', 'public/css');

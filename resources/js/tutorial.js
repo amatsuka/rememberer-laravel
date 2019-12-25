@@ -14,7 +14,7 @@ function showShadeifNeed() {
     $('#shade:hidden').show();
 }
 
-export default function (stepNum) {
+ function turorial(stepNum) {
     clearStepClasses();
     closeStepModals();
 
@@ -41,3 +41,19 @@ export default function (stepNum) {
     $('body').addClass("tut-active");
     $('#tut-modal-' + stepNum).modal('show');
 }
+
+$(() => {
+    $('#tutorialModal').modal('show');
+
+    let secontTutorialStep = $('.secontStepTutorialModal').eq(0).attr('data-tut-step');
+
+    if (secontTutorialStep) {
+        tutorial(secontTutorialStep);
+    }
+
+    $('.tut-set-step').on('click', function () {
+        let step = $(this).attr('data-tut-step');
+        tutorial(step);
+    });
+});
+

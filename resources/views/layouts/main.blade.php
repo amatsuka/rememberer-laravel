@@ -300,10 +300,7 @@ style=" fill:#ffffff;"><g transform="translate(0.516,0.516) scale(0.994,0.994)">
 
 </footer>
 <!-- Footer -->
-<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/highlight.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/quill/1.3.7/quill.min.js"></script>
 <script type="text/javascript" src="{{ URL::asset('js/app.js') }}"></script>
-<script type="text/javascript" src="{{ URL::asset('js/quill.js') }}"></script>
 <!-- Yandex.Metrika counter -->
 <script type="text/javascript" >
    (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
