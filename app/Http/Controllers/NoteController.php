@@ -75,7 +75,8 @@ class NoteController extends Controller
         return view('notes.view')->with('note', $note)->with('code', $request->get('code'))->with('message', [
             'type' => 'success',
             'text' => __('messages.phrase_to_get') . ": <b>{$note->code}</b><br/> " .  __('messages.link') . ": <a href='{$url}'>{$url}</a>"
-        ]);
+        ])
+            ->with('showDiffButton', $note->parent_id != null && $note->password_hash == null);
     }
 
     public function viewDirectly(string $code, Request $request)
@@ -99,7 +100,8 @@ class NoteController extends Controller
             return view('notes.view')->with('code', null)->with('note', $note)->with('message', [
                 'type' => 'success',
                 'text' => __('messages.phrase_to_get') . ": <b>{$note->code}</b><br/> " .  __('messages.link') . ": <a href='{$url}'>{$url}</a>"
-            ]);
+            ])
+            ->with('showDiffButton', $note->parent_id != null && $note->password_hash == null);
         } else {
             return view('notes.view')->with('message', [
                 'type' => 'need_pass_directly',
@@ -116,5 +118,27 @@ class NoteController extends Controller
              'tutorial1' => !Session::has('tutorial_succeed'),
              'tutorial2' => Session::get('show_tutorial2')
              ]);
+    }
+
+    public function viewDiff(string $code) {
+            $firstNote = $this->noteService->findByCode($code);
+
+            if ($firstNote == null) {
+                return view('notes.diff')->with('message', [
+                    'type' => 'error',
+                    'text' => __('messages.note_not_found')
+                ]);
+            }
+
+            $secondNote = $this->noteService->findById($firstNote->parent_id);
+
+        if ($secondNote == null || $secondNote->password_hash != null) {
+            return view('notes.diff')->with('message', [
+                'type' => 'error',
+                'text' => __('messages.note_not_found')
+            ]);
+        }
+
+        return view('notes.diff')->with('firstNote', $firstNote)->with('secondNote', $secondNote);
     }
 }

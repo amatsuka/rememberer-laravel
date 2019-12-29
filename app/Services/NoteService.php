@@ -23,14 +23,19 @@ class NoteService {
      * @return Note
      */
     public function store(array $attributes) : Note {
-        $json = json_decode($attributes['text'], true);
 
-        if (count($json['ops']) == 1) {
-            $text = $json['ops'][0]['insert'];
+        if (strlen($attributes['text']) == 0) {
+              throw new NoteNotStoredException(__('messages.text_is_empty'));
+        }
 
-            if (strlen($text) == 1) {
-               throw new NoteNotStoredException(__('messages.text_is_empty'));
-            }
+        $attributes['text'] = json_encode(['text' => $attributes['text'], 'lang' => $attributes['lang']]);
+
+        if (isset($attributes['parent_code']) && $attributes['parent_code'] != null) {
+            $note = $this->findByCode($attributes['parent_code']);
+
+            if ($note != null) {
+                $attributes['parent_id'] = $note->id;
+             }
         }
 
         $note = new Note($attributes);
@@ -84,6 +89,10 @@ class NoteService {
         }
 
         return $this->decryptNote($note, $password);
+    }
+
+    public function findById(int $id) {
+            return Note::whereId($id)->first();
     }
 
     public function clearExpired() {

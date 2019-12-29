@@ -11,6 +11,12 @@ html, body {
 
 #editor-container {
   height: 375px;
+  border: 1px solid #ccc;
+}
+
+#diff-editor-container {
+  height: 375px;
+  border: 1px solid #ccc;
 }
 
 body.bg1 {

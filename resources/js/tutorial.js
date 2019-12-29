@@ -1,3 +1,5 @@
+import * as monaco from 'monaco-editor';
+
 function clearStepClasses() {
     $("body").removeClass(function (index, className) {
         return (className.match(/(tut\-\d\-step\-active)/g, "") || []).join(' ');
@@ -14,7 +16,7 @@ function showShadeifNeed() {
     $('#shade:hidden').show();
 }
 
- function turorial(stepNum) {
+ export default function turorial(stepNum) {
     clearStepClasses();
     closeStepModals();
 
@@ -23,7 +25,9 @@ function showShadeifNeed() {
     }
 
     if (stepNum == '4') {
-        quill.setContents({ "ops": [{ "insert": "Моя первая заметка в getremember\n" }] }, 'api');
+        let model = monaco.editor.createModel('Моя первая заметка', 'plaintext');
+        editor.setModel(model);
+        $("#editor-lang").val('plaintext');
     }
 
     if (stepNum == 'saveNote') {
@@ -41,19 +45,4 @@ function showShadeifNeed() {
     $('body').addClass("tut-active");
     $('#tut-modal-' + stepNum).modal('show');
 }
-
-$(() => {
-    $('#tutorialModal').modal('show');
-
-    let secontTutorialStep = $('.secontStepTutorialModal').eq(0).attr('data-tut-step');
-
-    if (secontTutorialStep) {
-        tutorial(secontTutorialStep);
-    }
-
-    $('.tut-set-step').on('click', function () {
-        let step = $(this).attr('data-tut-step');
-        tutorial(step);
-    });
-});
 

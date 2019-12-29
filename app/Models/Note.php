@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
  * App\Models\Note
  *
  * @property int $id
+ * @property int $parent_id
  * @property string $text
  * @property string $code
  * @property string $tCode
@@ -24,9 +25,10 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Note wherePasswordHash($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Note whereText($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Note whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Note whereParentId($value)
  * @mixin \Eloquent
  */
 class Note extends Model
 {
-    public $fillable = ['text', 'code', 't_code', 'password_hash'];
+    public $fillable = ['text', 'code', 't_code', 'password_hash', 'parent_id'];
 }
