@@ -30,7 +30,7 @@
     {!! Form::password('password', ['class' => 'form-control', 'placeholder' => __('messages.password_placeholder'), 'autocomplete' => 'off']) !!}
     <small id="passwordHelp" class="form-text text-muted">@lang('messages.password_label')</small>
   </div>
-{!! Form::submit(__('messages.button_save_as_new'), ['class' => 'btn btn-primary tut-6-step']) !!}
+{!! Form::submit(__('messages.button_save_as_new'), ['class' => 'btn btn-primary tut-7-step']) !!}
 @if ($showDiffButton)
     <a class="btn btn-primary" href={{route('note.view-diff', [$note->t_code])}}>@lang('messages.button_show_diff')</a>
 @endif
