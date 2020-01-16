@@ -3,7 +3,7 @@
 
 /**
  * A helper file for Laravel 5, to provide autocomplete information to your IDE
- * Generated for Laravel 6.4.1 on 2019-11-13 10:01:21.
+ * Generated for Laravel 6.4.1 on 2020-01-10 15:10:46.
  *
  * This file should not be included in your code, only analyzed by your IDE!
  *
@@ -10642,6 +10642,56 @@ namespace Illuminate\Support\Facades {
         {
                         return \Illuminate\Routing\ResponseFactory::hasMacro($name);
         }
+        
+        /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function success($data = array(), $message = 'OK', $code = 200)
+        {
+                        return \Illuminate\Routing\ResponseFactory::success($data, $message, $code);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function error($data = array(), $message = 'Application Error', $code = 400)
+        {
+                        return \Illuminate\Routing\ResponseFactory::error($data, $message, $code);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function fail($data = array(), $message = 'Server Error', $code = 500)
+        {
+                        return \Illuminate\Routing\ResponseFactory::fail($data, $message, $code);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function forbidden($data = array(), $message = 'Access denied', $code = 403)
+        {
+                        return \Illuminate\Routing\ResponseFactory::forbidden($data, $message, $code);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function errorByException($e, $message = null, $code = 400)
+        {
+                        return \Illuminate\Routing\ResponseFactory::errorByException($e, $message, $code);
+        }
          
     }
 
@@ -14713,6 +14763,64 @@ namespace Illuminate\Support {
      *
      */ 
     class Str {
+         
+    }
+ 
+}
+
+namespace Bluora\Yandex\Facades { 
+
+    /**
+     * 
+     *
+     */ 
+    class YandexTranslateFacade {
+        
+        /**
+         * Returns a list of translation directions supported by the service.
+         *
+         * @link http://api.yandex.com/translate/doc/dg/reference/getLangs.xml
+         * @param string $culture If set, the service's response will contain a list of language codes
+         * @return array 
+         * @static 
+         */ 
+        public static function getSupportedLanguages($culture = null)
+        {
+                        /** @var \Bluora\Yandex\Translate $instance */
+                        return $instance->getSupportedLanguages($culture);
+        }
+        
+        /**
+         * Detects the language of the specified text.
+         *
+         * @link http://api.yandex.com/translate/doc/dg/reference/detect.xml
+         * @param string $text The text to detect the language for.
+         * @return string 
+         * @static 
+         */ 
+        public static function detect($text)
+        {
+                        /** @var \Bluora\Yandex\Translate $instance */
+                        return $instance->detect($text);
+        }
+        
+        /**
+         * Translates the text.
+         *
+         * @link http://api.yandex.com/translate/doc/dg/reference/translate.xml
+         * @param string|array $text The text to be translated.
+         * @param string $language Translation direction (for example, "en-ru" or "ru").
+         * @param bool $html Text format, if true - html, otherwise plain.
+         * @param int $options Translation options.
+         * @return array 
+         * @SuppressWarnings (PHPMD.BooleanArgumentFlag)
+         * @static 
+         */ 
+        public static function translate($text, $from_language, $to_language, $html = false, $options = 0)
+        {
+                        /** @var \Bluora\Yandex\Translate $instance */
+                        return $instance->translate($text, $from_language, $to_language, $html, $options);
+        }
          
     }
  
@@ -19579,6 +19687,8 @@ namespace  {
     class Validator extends \Illuminate\Support\Facades\Validator {}
 
     class View extends \Illuminate\Support\Facades\View {}
+
+    class YandexTranslate extends \Bluora\Yandex\Facades\YandexTranslateFacade {}
 
     class Debugbar extends \Barryvdh\Debugbar\Facade {}
 

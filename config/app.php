@@ -176,6 +176,7 @@ return [
         App\Providers\RouteServiceProvider::class,
 
         Bluora\Yandex\Providers\YandexTranslateServiceProvider::class,
+        App\Providers\ResponseMacroServiceProvider::class,
     ],
 
     /*
