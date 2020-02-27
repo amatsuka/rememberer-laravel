@@ -17,6 +17,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::post('/notes/find', 'Api/NoteController@find')->name('api.note.find');
-Route::post('/notes', 'Api/NoteController@store')->name('api.note.store');
+Route::post('/notes/find', 'Api\NoteController@find')->name('api.note.find');
+Route::post('/notes', 'Api\NoteController@store')->name('api.note.store');
 

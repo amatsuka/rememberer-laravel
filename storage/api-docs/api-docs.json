@@ -1,0 +1,166 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "",
+        "description": "",
+        "termsOfService": "",
+        "contact": {
+            "email": ""
+        },
+        "license": {
+            "name": "Private License",
+            "url": "URL to the license"
+        },
+        "version": "1.0.0"
+    },
+    "host": "getremember.com",
+    "basePath": "/",
+    "schemes": [
+        "https"
+    ],
+    "paths": {
+        "/api/notes": {
+            "post": {
+                "tags": [
+                    "\u0417\u0430\u043c\u0435\u0442\u043a\u0438"
+                ],
+                "summary": "\u0421\u043e\u0437\u0434\u0430\u0442\u044c \u0437\u0430\u043c\u0435\u0442\u043a\u0443. \u041f\u043e\u043b\u0435 password \u043d\u0435 \u043e\u0431\u044f\u0437\u0430\u0442\u0435\u043b\u044c\u043d\u043e\u0435 \u043d\u043e \u0434\u043e\u043b\u0436\u043d\u043e \u043f\u0440\u0438\u0441\u0443\u0442\u0441\u0442\u0432\u043e\u0432\u0430\u0442\u044c \u0432 \u0437\u0430\u043f\u0440\u043e\u0441\u0435 (\u043f\u0435\u0440\u0435\u0434\u0430\u0432\u0430\u0442\u044c \u043f\u0443\u0441\u0442\u0443\u044e \u0441\u0442\u0440\u043e\u043a\u0443).",
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "schema": {
+                            "required": [
+                                "text",
+                                "lang",
+                                "password"
+                            ],
+                            "properties": {
+                                "text": {
+                                    "description": "\u0421\u043e\u0437\u0434\u0430\u0442\u044c \u0437\u0430\u043c\u0435\u0442\u043a\u0443. \u041f\u043e\u043b\u0435 password \u043d\u0435 \u043e\u0431\u044f\u0437\u0430\u0442\u0435\u043b\u044c\u043d\u043e\u0435 \u043d\u043e \u0434\u043e\u043b\u0436\u043d\u043e \u043f\u0440\u0438\u0441\u0443\u0442\u0441\u0442\u0432\u043e\u0432\u0430\u0442\u044c \u0432 \u0437\u0430\u043f\u0440\u043e\u0441\u0435 (\u043f\u0435\u0440\u0435\u0434\u0430\u0432\u0430\u0442\u044c \u043f\u0443\u0441\u0442\u0443\u044e \u0441\u0442\u0440\u043e\u043a\u0443)."
+                                },
+                                "password": {
+                                    "description": "\u0421\u043e\u0437\u0434\u0430\u0442\u044c \u0437\u0430\u043c\u0435\u0442\u043a\u0443. \u041f\u043e\u043b\u0435 password \u043d\u0435 \u043e\u0431\u044f\u0437\u0430\u0442\u0435\u043b\u044c\u043d\u043e\u0435 \u043d\u043e \u0434\u043e\u043b\u0436\u043d\u043e \u043f\u0440\u0438\u0441\u0443\u0442\u0441\u0442\u0432\u043e\u0432\u0430\u0442\u044c \u0432 \u0437\u0430\u043f\u0440\u043e\u0441\u0435 (\u043f\u0435\u0440\u0435\u0434\u0430\u0432\u0430\u0442\u044c \u043f\u0443\u0441\u0442\u0443\u044e \u0441\u0442\u0440\u043e\u043a\u0443)."
+                                },
+                                "lang": {
+                                    "description": "\u0421\u043e\u0437\u0434\u0430\u0442\u044c \u0437\u0430\u043c\u0435\u0442\u043a\u0443. \u041f\u043e\u043b\u0435 password \u043d\u0435 \u043e\u0431\u044f\u0437\u0430\u0442\u0435\u043b\u044c\u043d\u043e\u0435 \u043d\u043e \u0434\u043e\u043b\u0436\u043d\u043e \u043f\u0440\u0438\u0441\u0443\u0442\u0441\u0442\u0432\u043e\u0432\u0430\u0442\u044c \u0432 \u0437\u0430\u043f\u0440\u043e\u0441\u0435 (\u043f\u0435\u0440\u0435\u0434\u0430\u0432\u0430\u0442\u044c \u043f\u0443\u0441\u0442\u0443\u044e \u0441\u0442\u0440\u043e\u043a\u0443)."
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "properties": {
+                                "code": {
+                                    "description": "\u0421\u043e\u0437\u0434\u0430\u0442\u044c \u0437\u0430\u043c\u0435\u0442\u043a\u0443. \u041f\u043e\u043b\u0435 password \u043d\u0435 \u043e\u0431\u044f\u0437\u0430\u0442\u0435\u043b\u044c\u043d\u043e\u0435 \u043d\u043e \u0434\u043e\u043b\u0436\u043d\u043e \u043f\u0440\u0438\u0441\u0443\u0442\u0441\u0442\u0432\u043e\u0432\u0430\u0442\u044c \u0432 \u0437\u0430\u043f\u0440\u043e\u0441\u0435 (\u043f\u0435\u0440\u0435\u0434\u0430\u0432\u0430\u0442\u044c \u043f\u0443\u0441\u0442\u0443\u044e \u0441\u0442\u0440\u043e\u043a\u0443)."
+                                },
+                                "status": {
+                                    "description": "\u0421\u043e\u0437\u0434\u0430\u0442\u044c \u0437\u0430\u043c\u0435\u0442\u043a\u0443. \u041f\u043e\u043b\u0435 password \u043d\u0435 \u043e\u0431\u044f\u0437\u0430\u0442\u0435\u043b\u044c\u043d\u043e\u0435 \u043d\u043e \u0434\u043e\u043b\u0436\u043d\u043e \u043f\u0440\u0438\u0441\u0443\u0442\u0441\u0442\u0432\u043e\u0432\u0430\u0442\u044c \u0432 \u0437\u0430\u043f\u0440\u043e\u0441\u0435 (\u043f\u0435\u0440\u0435\u0434\u0430\u0432\u0430\u0442\u044c \u043f\u0443\u0441\u0442\u0443\u044e \u0441\u0442\u0440\u043e\u043a\u0443)."
+                                },
+                                "message": {
+                                    "description": "\u0421\u043e\u0437\u0434\u0430\u0442\u044c \u0437\u0430\u043c\u0435\u0442\u043a\u0443. \u041f\u043e\u043b\u0435 password \u043d\u0435 \u043e\u0431\u044f\u0437\u0430\u0442\u0435\u043b\u044c\u043d\u043e\u0435 \u043d\u043e \u0434\u043e\u043b\u0436\u043d\u043e \u043f\u0440\u0438\u0441\u0443\u0442\u0441\u0442\u0432\u043e\u0432\u0430\u0442\u044c \u0432 \u0437\u0430\u043f\u0440\u043e\u0441\u0435 (\u043f\u0435\u0440\u0435\u0434\u0430\u0432\u0430\u0442\u044c \u043f\u0443\u0441\u0442\u0443\u044e \u0441\u0442\u0440\u043e\u043a\u0443)."
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/notes/find": {
+            "post": {
+                "tags": [
+                    "\u0417\u0430\u043c\u0435\u0442\u043a\u0438"
+                ],
+                "summary": "\u041f\u043e\u043b\u0443\u0447\u0438\u0442\u044c \u0437\u0430\u043c\u0435\u0442\u043a\u0443 \u043f\u043e \u043a\u043e\u0434\u0443",
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "schema": {
+                            "required": [
+                                "code"
+                            ],
+                            "properties": {
+                                "code": {
+                                    "description": "\u041f\u043e\u043b\u0443\u0447\u0438\u0442\u044c \u0437\u0430\u043c\u0435\u0442\u043a\u0443 \u043f\u043e \u043a\u043e\u0434\u0443"
+                                },
+                                "password": {
+                                    "description": "\u041f\u043e\u043b\u0443\u0447\u0438\u0442\u044c \u0437\u0430\u043c\u0435\u0442\u043a\u0443 \u043f\u043e \u043a\u043e\u0434\u0443"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "$ref": "#/definitions/Note"
+                        }
+                    },
+                    "404": {
+                        "description": "Not found",
+                        "schema": {
+                            "$ref": "#/definitions/response_404"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "response_404": {
+            "required": [
+                "message"
+            ],
+            "properties": {
+                "message": {
+                    "description": "\u0421\u043e\u043e\u0431\u0449\u0435\u043d\u0438\u0435 \u043e\u0431 \u043e\u0448\u0438\u0431\u043a\u0435",
+                    "type": "string",
+                    "example": "\u041e\u0448\u0438\u0431\u043a\u0430: \u041d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u043e"
+                },
+                "errors": {
+                    "description": "\u0412\u043e\u0437\u043d\u0438\u043a\u0430\u0435\u0442 \u043a\u043e\u0433\u0434\u0430 \u0437\u0430\u043c\u0435\u0442\u043a\u0430 \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u0430 \u0438\u043b\u0438 \u0442\u0440\u0435\u0431\u0443\u0435\u0442\u0441\u044f \u043f\u0430\u0440\u043e\u043b\u044c",
+                    "type": "object",
+                    "example": {
+                        "code": "404",
+                        "status": "not_found",
+                        "message": "\u0417\u0430\u043c\u0435\u0442\u043a\u0430 \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u0430"
+                    }
+                }
+            }
+        },
+        "Note": {
+            "description": "\u0417\u0430\u043c\u0435\u0442\u043a\u0430",
+            "properties": {
+                "text": {
+                    "description": "App\\Models\\Note",
+                    "example": "\u0422\u0435\u043a\u0441\u0442 \u0437\u0430\u043c\u0435\u0442\u043a\u0438"
+                },
+                "code": {
+                    "description": "App\\Models\\Note",
+                    "example": "\u0424\u0440\u0430\u0437\u0430 \u0438\u0434\u0435\u043d\u0442\u0438\u0444\u0438\u0446\u0438\u0440\u0443\u044e\u0449\u0430\u044f \u0437\u0430\u043c\u0435\u0442\u043a\u0443"
+                },
+                "t_code": {
+                    "description": "App\\Models\\Note",
+                    "example": "\u0424\u0440\u0430\u0437\u0430 \u0438\u0434\u0435\u043d\u0442\u0438\u0444\u0438\u0446\u0438\u0440\u0443\u044e\u0449\u0430\u044f \u0437\u0430\u043c\u0435\u0442\u043a\u0443 \u0432 \u0442\u0440\u0430\u043d\u0441\u043b\u0438\u0442\u0435"
+                },
+                "parent_id": {
+                    "description": "App\\Models\\Note",
+                    "example": "Id \u0440\u043e\u0434\u0438\u0442\u0435\u043b\u044c\u0441\u043a\u043e\u0439 \u0437\u0430\u043f\u0438\u0441\u0438"
+                }
+            },
+            "type": "object"
+        }
+    },
+    "externalDocs": {
+        "description": "",
+        "url": ""
+    }
+}

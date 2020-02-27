@@ -23,6 +23,32 @@ class NoteController
         $this->noteService = $noteService;
     }
 
+    /**
+     * Создать заметку. Поле password не обязательное но должно присутствовать в запросе (передавать пустую строку).
+     *
+     * @SWG\Post(
+     *     path="/api/notes",
+     *     tags={"Заметки"},
+     *     @SWG\Parameter(
+     *          name="body",
+     *          in="body",
+     *          @SWG\Schema(
+     *              type="object",
+     *              required={"text", "lang", "password"},
+     *              @SWG\Property(property="text"),
+     *              @SWG\Property(property="password"),
+     *              @SWG\Property(property="lang"),
+     *          )
+     *     ),
+     *     @SWG\Response(response="200", description="Success", @SWG\Schema(
+     *                                                              type="object",
+     *                                                              @SWG\Property(property="code"),
+     *                                                              @SWG\Property(property="status"),
+     *                                                              @SWG\Property(property="message")
+     *          )
+     *      )
+     * )
+     */
     public function store(Request $request)
     {
         try {
@@ -40,6 +66,26 @@ class NoteController
         return Response::success([], $mess);
     }
 
+    /**
+     * Получить заметку по коду
+     *
+     * @SWG\Post(
+     *     path="/api/notes/find",
+     *     tags={"Заметки"},
+     *     @SWG\Parameter(
+     *         name="body",
+     *         in="body",
+     *     @SWG\Schema(
+     *              type="object",
+     *              required={"code"},
+     *              @SWG\Property(property="code"),
+     *              @SWG\Property(property="password"),
+     *          )
+     *     ),
+     *     @SWG\Response(response="200", description="Success", @SWG\Schema(ref="#/definitions/Note")),
+     *     @SWG\Response(response="404", description="Not found", @SWG\Schema(ref="#/definitions/response_404"))
+     * )
+     */
     public function find(Request $request)
     {
         $note = null;
@@ -53,7 +99,7 @@ class NoteController
         if ($note == null) {
             return Response::notFound([], __('messages.note_not_found'));
         } else {
-            return Response::success($note);
+            return Response::success($note->toArray());
         }
 
     }

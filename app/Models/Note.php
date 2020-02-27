@@ -27,6 +27,12 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Note whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Note whereParentId($value)
  * @mixin \Eloquent
+ *
+ * *  @SWG\Definition(definition="Note", description="Заметка", type="object")
+ * @SWG\Property(property="text", example="Текст заметки")
+ * @SWG\Property(property="code", example="Фраза идентифицирующая заметку")
+ * @SWG\Property(property="t_code", example="Фраза идентифицирующая заметку в транслите")
+ * @SWG\Property(property="parent_id", example="Id родительской записи")
  */
 class Note extends Model
 {
