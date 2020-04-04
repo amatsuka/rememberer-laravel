@@ -15,5 +15,6 @@ return [
     'phrase_to_get' => 'Phrase to get',
     'link' => 'Link',
     'text_is_empty' => 'Note text cannot be empty',
-    'button_show_diff' => 'Diff'
+    'button_show_diff' => 'Diff',
+    'parent_note_not_found' => 'Parent note not found'
 ];

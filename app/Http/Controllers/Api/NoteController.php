@@ -38,6 +38,7 @@ class NoteController
      *              @SWG\Property(property="text"),
      *              @SWG\Property(property="password"),
      *              @SWG\Property(property="lang"),
+     *              @SWG\Property(property="parent_code")
      *          )
      *     ),
      *     @SWG\Response(response="200", description="Success", @SWG\Schema(

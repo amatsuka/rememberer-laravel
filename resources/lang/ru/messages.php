@@ -15,5 +15,6 @@ return [
     'phrase_to_get' => 'Фраза для получения',
     'link' => 'Ссылка',
     'text_is_empty' => 'Текст заметки не может быть пустым',
-    'button_show_diff' => 'Diff предыдущей'
+    'button_show_diff' => 'Diff предыдущей',
+    'parent_note_not_found' => 'Родительская запись не найдена'
 ];

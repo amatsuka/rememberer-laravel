@@ -2,6 +2,7 @@
 namespace App\Services;
 
 use App\Models\Note;
+use Illuminate\Encryption\Encrypter;
 use Illuminate\Support\Str;
 use Illuminate\Support\Carbon;
 use App\Exceptions\EmptyCodeException;
@@ -31,11 +32,14 @@ class NoteService {
         $attributes['text'] = json_encode(['text' => $attributes['text'], 'lang' => $attributes['lang']]);
 
         if (isset($attributes['parent_code']) && $attributes['parent_code'] != null) {
-            $note = $this->findByCode($attributes['parent_code']);
+            $note = $this->findByCodeIgnorePassword($attributes['parent_code']);
 
             if ($note != null) {
                 $attributes['parent_id'] = $note->id;
-             }
+                $attributes['parent_code'] = $note->t_code;
+             } else {
+                throw new NoteNotStoredException(__('messages.parent_note_not_found'));
+            }
         }
 
         $note = new Note($attributes);
@@ -100,7 +104,7 @@ class NoteService {
     }
 
     private function encryptNote(Note $note, string $password) : Note {
-        $encrypter = new \Illuminate\Encryption\Encrypter($password . \str_repeat("0", 16 - \strlen($password)));
+        $encrypter = new Encrypter($password . \str_repeat("0", 16 - \strlen($password)));
 
         $note->text = $encrypter->encrypt($note->text);
         $note->password_hash = md5($password);
@@ -111,7 +115,7 @@ class NoteService {
     private function decryptNote(Note $note, string $password) : Note
     {
         $password = $password . \str_repeat("0", 16 - \strlen($password));
-        $encrypter = new \Illuminate\Encryption\Encrypter($password);
+        $encrypter = new Encrypter($password);
         $note->text = $encrypter->decrypt($note->text);
 
         return $note;

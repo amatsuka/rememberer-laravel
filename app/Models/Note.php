@@ -9,9 +9,10 @@ use Illuminate\Database\Eloquent\Model;
  *
  * @property int $id
  * @property int $parent_id
+ * @property string $parent_code
  * @property string $text
  * @property string $code
- * @property string $tCode
+ * @property string $t_code
  * @property string $password_hash
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
@@ -26,6 +27,7 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Note whereText($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Note whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Note whereParentId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Note whereParentCode($value)
  * @mixin \Eloquent
  *
  * *  @SWG\Definition(definition="Note", description="Заметка", type="object")
@@ -33,8 +35,9 @@ use Illuminate\Database\Eloquent\Model;
  * @SWG\Property(property="code", example="Фраза идентифицирующая заметку")
  * @SWG\Property(property="t_code", example="Фраза идентифицирующая заметку в транслите")
  * @SWG\Property(property="parent_id", example="Id родительской записи")
+ * @SWG\Property(property="parent_code", example="Код родительской записи")
  */
 class Note extends Model
 {
-    public $fillable = ['text', 'code', 't_code', 'password_hash', 'parent_id'];
+    public $fillable = ['text', 'code', 't_code', 'password_hash', 'parent_id', 'parent_code'];
 }
