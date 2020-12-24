@@ -26,26 +26,26 @@ class NoteController
     /**
      * Создать заметку. Поле password не обязательное но должно присутствовать в запросе (передавать пустую строку).
      *
-     * @SWG\Post(
+     * @OA\Post(
      *     path="/api/notes",
      *     tags={"Заметки"},
-     *     @SWG\Parameter(
+     *     @OA\Parameter(
      *          name="body",
      *          in="body",
-     *          @SWG\Schema(
+     *          @OA\Schema(
      *              type="object",
      *              required={"text", "lang", "password"},
-     *              @SWG\Property(property="text"),
-     *              @SWG\Property(property="password"),
-     *              @SWG\Property(property="lang"),
-     *              @SWG\Property(property="parent_code")
+     *              @OA\Property(property="text"),
+     *              @OA\Property(property="password"),
+     *              @OA\Property(property="lang"),
+     *              @OA\Property(property="parent_code")
      *          )
      *     ),
-     *     @SWG\Response(response="200", description="Success", @SWG\Schema(
+     *     @OA\Response(response="200", description="Success", @OA\Schema(
      *                                                              type="object",
-     *                                                              @SWG\Property(property="code"),
-     *                                                              @SWG\Property(property="status"),
-     *                                                              @SWG\Property(property="message")
+     *                                                              @OA\Property(property="code"),
+     *                                                              @OA\Property(property="status"),
+     *                                                              @OA\Property(property="message")
      *          )
      *      )
      * )
@@ -70,21 +70,21 @@ class NoteController
     /**
      * Получить заметку по коду
      *
-     * @SWG\Post(
+     * @OA\Post(
      *     path="/api/notes/find",
      *     tags={"Заметки"},
-     *     @SWG\Parameter(
+     *     @OA\Parameter(
      *         name="body",
      *         in="body",
-     *     @SWG\Schema(
+     *     @OA\Schema(
      *              type="object",
      *              required={"code"},
-     *              @SWG\Property(property="code"),
-     *              @SWG\Property(property="password"),
+     *              @OA\Property(property="code"),
+     *              @OA\Property(property="password"),
      *          )
      *     ),
-     *     @SWG\Response(response="200", description="Success", @SWG\Schema(ref="#/definitions/Note")),
-     *     @SWG\Response(response="404", description="Not found", @SWG\Schema(ref="#/definitions/response_404"))
+     *     @OA\Response(response="200", description="Success", @OA\Schema(ref="#/definitions/Note")),
+     *     @OA\Response(response="404", description="Not found", @OA\Schema(ref="#/definitions/response_404"))
      * )
      */
     public function find(Request $request)

@@ -30,12 +30,12 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Note whereParentCode($value)
  * @mixin \Eloquent
  *
- * *  @SWG\Definition(definition="Note", description="Заметка", type="object")
- * @SWG\Property(property="text", example="Текст заметки")
- * @SWG\Property(property="code", example="Фраза идентифицирующая заметку")
- * @SWG\Property(property="t_code", example="Фраза идентифицирующая заметку в транслите")
- * @SWG\Property(property="parent_id", example="Id родительской записи")
- * @SWG\Property(property="parent_code", example="Код родительской записи")
+ * *  @OA\Definition(definition="Note", description="Заметка", type="object")
+ * @OA\Property(property="text", example="Текст заметки")
+ * @OA\Property(property="code", example="Фраза идентифицирующая заметку")
+ * @OA\Property(property="t_code", example="Фраза идентифицирующая заметку в транслите")
+ * @OA\Property(property="parent_id", example="Id родительской записи")
+ * @OA\Property(property="parent_code", example="Код родительской записи")
  */
 class Note extends Model
 {
