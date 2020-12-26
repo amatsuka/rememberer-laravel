@@ -27,27 +27,29 @@ class NoteController
      * Создать заметку. Поле password не обязательное но должно присутствовать в запросе (передавать пустую строку).
      *
      * @OA\Post(
-     *     path="/api/notes",
-     *     tags={"Заметки"},
-     *     @OA\Parameter(
-     *          name="body",
-     *          in="body",
-     *          @OA\Schema(
-     *              type="object",
-     *              required={"text", "lang", "password"},
-     *              @OA\Property(property="text"),
-     *              @OA\Property(property="password"),
-     *              @OA\Property(property="lang"),
-     *              @OA\Property(property="parent_code")
-     *          )
-     *     ),
-     *     @OA\Response(response="200", description="Success", @OA\Schema(
-     *                                                              type="object",
-     *                                                              @OA\Property(property="code"),
-     *                                                              @OA\Property(property="status"),
-     *                                                              @OA\Property(property="message")
-     *          )
-     *      )
+     * path="/api/notes",
+     * summary="Создать заметку",
+     * description="Создать заметку. Поле password не обязательное но должно присутствовать в запросе (передавать пустую строку).",
+     * @OA\RequestBody(
+     *    required=true,
+     *    description="Поля заметки",
+     *    @OA\JsonContent(
+     *       required={"text", "lang", "password"},
+     *       @OA\Property(property="text", type="string", example="Какой-то текст заметки"),
+     *       @OA\Property(property="password", type="string", example="PassWord12345"),
+     *       @OA\Property(property="lang", type="string", example="javascript"),
+     *       @OA\Property(property="parent_code", type="integer", example="100")
+     *    ),
+     * ),
+     * @OA\Response(
+     *    response=200,
+     *    description="Success",
+     *    @OA\JsonContent(
+     *       @OA\Property(property="code", type="string", example="200"),
+     *       @OA\Property(property="status", type="string", example="success"),
+     *       @OA\Property(property="message", type="string", example="")
+     *        )
+     *     )
      * )
      */
     public function store(Request $request)
@@ -71,20 +73,38 @@ class NoteController
      * Получить заметку по коду
      *
      * @OA\Post(
-     *     path="/api/notes/find",
-     *     tags={"Заметки"},
-     *     @OA\Parameter(
-     *         name="body",
-     *         in="body",
-     *     @OA\Schema(
-     *              type="object",
-     *              required={"code"},
-     *              @OA\Property(property="code"),
-     *              @OA\Property(property="password"),
-     *          )
-     *     ),
-     *     @OA\Response(response="200", description="Success", @OA\Schema(ref="#/definitions/Note")),
-     *     @OA\Response(response="404", description="Not found", @OA\Schema(ref="#/definitions/response_404"))
+     * path="/api/notes/find",
+     * summary="Найти заметку",
+     * description="Получить заметку по коду",
+     * @OA\RequestBody(
+     *    required=true,
+     *    description="Поля заметки",
+     *    @OA\JsonContent(
+     *       required={"code"},
+     *       @OA\Property(property="code", type="string", example="Код заметки"),
+     *       @OA\Property(property="password", type="string", example="PassWord12345"),
+     *    ),
+     * ),
+     * @OA\Response(
+     *    response=200,
+     *    description="Success",
+     *    @OA\JsonContent(
+     *       @OA\Property(property="code", type="string", example="200"),
+     *       @OA\Property(property="status", type="string", example="success"),
+     *       @OA\Property(property="message", type="string", example=""),
+     *       @OA\Property(property="data", type="object", ref = "#/components/schemas/Note")
+     *        )
+     *     )
+     * )
+     * @OA\Response(
+     *    response=404,
+     *    description="Not found",
+     *    @OA\JsonContent(
+     *       @OA\Property(property="code", type="string", example="404"),
+     *       @OA\Property(property="status", type="string", example="not_found"),
+     *       @OA\Property(property="message", type="string", example="Заметка не найдена")
+     *        )
+     *     )
      * )
      */
     public function find(Request $request)

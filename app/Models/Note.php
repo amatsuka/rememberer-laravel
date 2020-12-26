@@ -30,7 +30,7 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Note whereParentCode($value)
  * @mixin \Eloquent
  *
- * *  @OA\Definition(definition="Note", description="Заметка", type="object")
+ * @OA\Schema (schema = "Note", description="Заметка", type="object")
  * @OA\Property(property="text", example="Текст заметки")
  * @OA\Property(property="code", example="Фраза идентифицирующая заметку")
  * @OA\Property(property="t_code", example="Фраза идентифицирующая заметку в транслите")
