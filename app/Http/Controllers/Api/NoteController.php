@@ -60,13 +60,7 @@ class NoteController
             return Response::errorByException($ex);
         }
 
-        $url = URL::to('/view/' . $note->t_code);
-        $mess = __('messages.phrase_to_get') .
-            ": <b>{$note->code}</b><br/> "
-            . __('messages.link')
-            . ": <a href='{$url}'>{$url}</a>";
-
-        return Response::success([], $mess);
+        return Response::success($note->toArray());
     }
 
     /**
@@ -120,7 +114,9 @@ class NoteController
         if ($note == null) {
             return Response::notFound([], __('messages.note_not_found'));
         } else {
-            return Response::success($note->toArray());
+            $parents = $this->noteService->findAllParents($note->parent_id, $request->has('password') ? $request->get('password') : null);
+
+            return Response::success(['note' => $note->toArray(), 'parents' => $parents]);
         }
 
     }

@@ -3,6 +3,7 @@ namespace App\Services;
 
 use App\Models\Note;
 use Illuminate\Encryption\Encrypter;
+use Illuminate\Support\Collection;
 use Illuminate\Support\Str;
 use Illuminate\Support\Carbon;
 use App\Exceptions\EmptyCodeException;
@@ -37,6 +38,11 @@ class NoteService {
             if ($note != null) {
                 $attributes['parent_id'] = $note->id;
                 $attributes['parent_code'] = $note->t_code;
+
+                if ($note->password_hash && (md5($attributes['password']) != $note->password_hash)) {
+                    throw new NoteNotStoredException(__('messages.parent_password_mismatch'));
+                }
+
              } else {
                 throw new NoteNotStoredException(__('messages.parent_note_not_found'));
             }
@@ -119,5 +125,23 @@ class NoteService {
         $note->text = $encrypter->decrypt($note->text);
 
         return $note;
+    }
+
+    public function findAllParents(int $parentId, string $password): Collection
+    {
+        $result = new Collection();
+
+        do {
+            if ($parentId == null) break;
+
+            $note = $this->findById($parentId);
+            if ($note != null) {
+                $note = $password ? $this->decryptNote($note, $password) : $note;
+                $result->add($note);
+                $parentId = $note->parent_id;
+            }
+        } while($note != null);
+
+        return $result->sortBy("created_at");
     }
 }
